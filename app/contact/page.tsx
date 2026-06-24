@@ -233,22 +233,22 @@ export default function ContactPage() {
             <div
               className="rounded-2xl p-6 mt-2"
               style={{
-                background: "#0a0a0a",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background: "linear-gradient(135deg, #faf5ff 0%, #f0f9ff 100%)",
+                border: "1px solid rgba(124,58,237,0.12)",
               }}
             >
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-                <span className="text-xs font-semibold text-white">Beschikbaar</span>
+                <span className="text-xs font-semibold text-[#09090b]">Beschikbaar</span>
               </div>
-              <p className="text-sm font-bold text-white">Wat ik zoek</p>
+              <p className="text-sm font-bold text-[#09090b]">Wat ik zoek</p>
               <ul className="space-y-1.5">
                 {[
                   "Freelance marketing opdrachten",
                   "Content en SEO projecten",
                   "Toekomstige stages (2027)",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-xs text-white/80">
+                  <li key={item} className="flex items-center gap-2 text-xs text-[#09090b]">
                     <span className="w-1 h-1 rounded-full bg-[#7c3aed] flex-shrink-0" />
                     {item}
                   </li>

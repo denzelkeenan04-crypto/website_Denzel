@@ -741,7 +741,7 @@ export default function VormgevingPage() {
           <h2 className="text-2xl font-black tracking-tight text-[#09090b] mb-2">
             Meer van mijn werk zien?
           </h2>
-          <p className="text-sm text-[#71717a] mb-6 max-w-sm mx-auto">
+          <p className="text-sm text-[#09090b] mb-6 max-w-sm mx-auto">
             Bekijk ook mijn stage-projecten bij Brandmerck of neem direct contact op.
           </p>
           <div className="flex items-center justify-center gap-3 flex-wrap">

@@ -399,7 +399,7 @@ export default function ProjectsPage() {
                 />
                 <span
                   className="absolute top-4 right-4 text-[10px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5"
-                  style={{ background: "rgba(34,197,94,0.1)", color: "#16a34a", border: "1px solid #bbf7d0" }}
+                  style={{ background: "rgba(34,197,94,0.25)", color: "#16a34a", border: "1px solid #bbf7d0" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] animate-pulse" />
                   Live
@@ -465,7 +465,7 @@ export default function ProjectsPage() {
                 />
                 <span
                   className="absolute top-4 right-4 text-[10px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5"
-                  style={{ background: "rgba(34,197,94,0.1)", color: "#16a34a", border: "1px solid #bbf7d0" }}
+                  style={{ background: "rgba(34,197,94,0.25)", color: "#16a34a", border: "1px solid #bbf7d0" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] animate-pulse" />
                   Live

@@ -43,7 +43,7 @@ export default function Navbar() {
               width={40}
               height={40}
               className="object-contain w-10 h-10"
-              style={{ filter: "brightness(0.6) saturate(1.2)" }}
+              style={{ filter: "brightness(1.8) invert(1)" }}
             />
             <span className="text-sm font-semibold text-[#09090b] group-hover:text-[#09090b] transition-colors duration-200">
               Denzel Keenan

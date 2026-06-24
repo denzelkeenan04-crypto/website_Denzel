@@ -86,9 +86,9 @@ export default function ContactPage() {
           </p>
           {/* Response time badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full"
-            style={{ background: "rgba(34,197,94,0.1)", border: "1px solid #bbf7d0" }}>
+            style={{ background: "rgba(34,197,94,0.25)", border: "1px solid #bbf7d0" }}>
             <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-            <span className="text-xs font-medium text-[#16a34a]">Reactietijd: binnen 24 uur</span>
+            <span className="text-xs font-medium text-white">Reactietijd: binnen 24 uur</span>
           </div>
         </motion.div>
 
@@ -107,14 +107,14 @@ export default function ContactPage() {
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-                  style={{ background: "rgba(34,197,94,0.1)", border: "2px solid #bbf7d0" }}
+                  style={{ background: "rgba(34,197,94,0.25)", border: "2px solid #bbf7d0" }}
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <h2 className="text-xl font-black text-white mb-2">Bericht verstuurd</h2>
-                <p className="text-sm text-white/70 max-w-xs">
+                <p className="text-sm text-white max-w-xs">
                   Bedankt, {form.name}. Ik neem zo snel mogelijk contact met je op.
                 </p>
               </div>
@@ -218,7 +218,7 @@ export default function ContactPage() {
                   {icon}
                 </div>
                 <div>
-                  <p className="text-[10px] text-white/60 uppercase tracking-wide mb-0.5">{label}</p>
+                  <p className="text-[10px] text-white uppercase tracking-wide mb-0.5">{label}</p>
                   <p className="text-sm font-medium text-white">{value}</p>
                 </div>
                 <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
@@ -239,7 +239,7 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-                <span className="text-xs font-semibold text-[#16a34a]">Beschikbaar</span>
+                <span className="text-xs font-semibold text-white">Beschikbaar</span>
               </div>
               <p className="text-sm font-bold text-white mb-2">Wat ik zoek</p>
               <ul className="space-y-1.5">
@@ -249,7 +249,7 @@ export default function ContactPage() {
                   "Bijbanen naast de opleiding",
                   "Toekomstige stages (2027)",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-xs text-white/70">
+                  <li key={item} className="flex items-center gap-2 text-xs text-white">
                     <span className="w-1 h-1 rounded-full bg-[#7c3aed] flex-shrink-0" />
                     {item}
                   </li>
@@ -267,7 +267,7 @@ export default function ContactPage() {
               </svg>
               <div>
                 <p className="text-xs font-medium text-white">Sneek, Friesland</p>
-                <p className="text-[10px] text-white/60">Nederland · Remote beschikbaar</p>
+                <p className="text-[10px] text-white">Nederland · Remote beschikbaar</p>
               </div>
             </div>
           </motion.div>

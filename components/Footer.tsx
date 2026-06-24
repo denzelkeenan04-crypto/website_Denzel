@@ -62,7 +62,7 @@ export default function Footer() {
                 width={36}
                 height={36}
                 className="object-contain opacity-90"
-                style={{ filter: 'brightness(1.2) contrast(1.1)' }}
+                style={{ filter: 'brightness(2) invert(1) saturate(1.5)' }}
               />
               <span className="font-semibold text-white">Denzel Keenan</span>
             </div>
@@ -73,9 +73,9 @@ export default function Footer() {
 
             {/* Status */}
             <div className="inline-flex items-center gap-2 mt-5 px-3 py-1.5 rounded-full"
-              style={{ background: "rgba(34,197,94,0.1)", border: "1px solid #bbf7d0" }}>
+              style={{ background: "rgba(34,197,94,0.25)", border: "1px solid #bbf7d0" }}>
               <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-              <span className="text-[11px] font-medium text-[#16a34a]">Beschikbaar voor opdrachten</span>
+              <span className="text-[11px] font-medium text-white">Beschikbaar voor opdrachten</span>
             </div>
           </div>
 

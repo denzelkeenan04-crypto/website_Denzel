@@ -168,8 +168,8 @@ export default function ExperiencePage() {
                       </span>
                       {current && (
                         <span
-                          className="text-[10px] px-2.5 py-1 rounded-full font-medium text-[#16a34a]"
-                          style={{ background: "rgba(34,197,94,0.1)", border: "1px solid #bbf7d0" }}
+                          className="text-[10px] px-2.5 py-1 rounded-full font-medium text-white"
+                          style={{ background: "rgba(34,197,94,0.25)", border: "1px solid #bbf7d0" }}
                         >
                           Nu
                         </span>
@@ -241,8 +241,8 @@ export default function ExperiencePage() {
               <p className="text-sm text-white/70">Firda · Sneek · Aug 2025 – Jun 2027</p>
             </div>
             <span
-              className="ml-auto text-[10px] px-2.5 py-1 rounded-full font-medium text-[#16a34a] flex-shrink-0"
-              style={{ background: "rgba(34,197,94,0.1)", border: "1px solid #bbf7d0" }}
+              className="ml-auto text-[10px] px-2.5 py-1 rounded-full font-medium text-white flex-shrink-0"
+              style={{ background: "rgba(34,197,94,0.25)", border: "1px solid #bbf7d0" }}
             >
               Huidig
             </span>

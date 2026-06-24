@@ -188,7 +188,7 @@ function CheckBadge({ done }: { done: boolean }) {
       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold"
       style={
         done
-          ? { background: "rgba(34,197,94,0.1)", color: "#16a34a", border: "1px solid #bbf7d0" }
+          ? { background: "rgba(34,197,94,0.25)", color: "#16a34a", border: "1px solid #bbf7d0" }
           : { background: "#fefce8", color: "#ca8a04", border: "1px solid #fde68a" }
       }
     >

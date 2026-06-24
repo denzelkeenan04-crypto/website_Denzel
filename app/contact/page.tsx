@@ -239,9 +239,9 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-                <span className="text-xs font-semibold text-[#09090b]>Beschikbaar</span>
+                <span className="text-xs font-semibold text-[#09090b]">Beschikbaar</span>
               </div>
-              <p className="text-sm font-bold text-[#09090b]>Wat ik zoek</p>
+              <p className="text-sm font-bold text-[#09090b]">Wat ik zoek</p>
               <ul className="space-y-1.5">
                 {[
                   "Freelance marketing opdrachten",
@@ -249,7 +249,7 @@ export default function ContactPage() {
                   "Bijbanen naast de opleiding",
                   "Toekomstige stages (2027)",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-xs text-white">
+                  <li key={item} className="flex items-center gap-2 text-xs text-[#09090b]">
                     <span className="w-1 h-1 rounded-full bg-[#7c3aed] flex-shrink-0" />
                     {item}
                   </li>

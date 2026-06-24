@@ -278,8 +278,8 @@ export default function Hero() {
               </Link>
               <Link
                 href="/contact"
-                className="px-7 py-3.5 rounded-2xl text-sm font-medium text-[#09090b] transition-all duration-200 hover:bg-[#f4f4f5] active:scale-[0.98]"
-                style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.1)" }}
+                className="px-7 py-3.5 rounded-2xl text-sm font-medium text-white transition-all duration-200 hover:opacity-88 active:scale-[0.98]"
+                style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)" }}
               >
                 Neem contact op
               </Link>

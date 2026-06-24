@@ -180,7 +180,7 @@ export default function ExperiencePage() {
                   {/* Points */}
                   <ul className="space-y-2.5">
                     {points.map((p) => (
-                      <li key={p} className="flex items-start gap-3 text-sm text-white/80">
+                      <li key={p} className="flex items-start gap-3 text-sm text-white">
                         <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2" style={{ background: color }} />
                         {p}
                       </li>

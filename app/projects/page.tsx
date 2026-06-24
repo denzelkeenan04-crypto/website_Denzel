@@ -302,7 +302,7 @@ export default function ProjectsPage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-5"
         >
-          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-4">/ Vaardigheden & Projecten</p>
+          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white mb-4">/ Vaardigheden & Projecten</p>
           <h1
             className="font-black tracking-[-0.04em] leading-[1.05] text-white mb-6"
             style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
@@ -356,7 +356,7 @@ export default function ProjectsPage() {
           className="mt-20"
         >
           <div className="mb-8">
-            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-3">/ Live websites</p>
+            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white mb-3">/ Live websites</p>
             <h2 className="text-2xl font-black tracking-tight text-white mb-2">
               Gebouwd met{" "}
               <span className="text-accent">WordPress & Elementor</span>.

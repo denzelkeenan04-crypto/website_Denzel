@@ -37,24 +37,14 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 select-none group">
-            <div className="flex gap-0 items-center">
-              <Image
-                src="/images/logo.png"
-                alt="DK logo"
-                width={40}
-                height={40}
-                className="object-contain w-10 h-10"
-                style={{ clipPath: "polygon(0%, 0%, 60%, 0%, 60%, 100%, 0%, 100%)", filter: "invert(1)" }}
-              />
-              <Image
-                src="/images/logo.png"
-                alt="DK logo"
-                width={40}
-                height={40}
-                className="object-contain w-10 h-10"
-                style={{ clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 60% 100%)" }}
-              />
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="DK logo"
+              width={40}
+              height={40}
+              className="object-contain w-10 h-10"
+              style={{ filter: "brightness(0.8) contrast(1.2)" }}
+            />
             <span className="text-sm font-semibold text-[#09090b] group-hover:text-[#09090b] transition-colors duration-200">
               Denzel Keenan
             </span>

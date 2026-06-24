@@ -142,7 +142,7 @@ export default function ExperiencePage() {
                 <div
                   className="rounded-3xl p-8"
                   style={{
-                    background: "#fff",
+                    background: "rgba(255,255,255,0.05)",
                     border: "1px solid rgba(0,0,0,0.07)",
                     boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                   }}
@@ -169,7 +169,7 @@ export default function ExperiencePage() {
                       {current && (
                         <span
                           className="text-[10px] px-2.5 py-1 rounded-full font-medium text-[#16a34a]"
-                          style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}
+                          style={{ background: "rgba(34,197,94,0.1)", border: "1px solid #bbf7d0" }}
                         >
                           Nu
                         </span>
@@ -242,7 +242,7 @@ export default function ExperiencePage() {
             </div>
             <span
               className="ml-auto text-[10px] px-2.5 py-1 rounded-full font-medium text-[#16a34a] flex-shrink-0"
-              style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}
+              style={{ background: "rgba(34,197,94,0.1)", border: "1px solid #bbf7d0" }}
             >
               Huidig
             </span>

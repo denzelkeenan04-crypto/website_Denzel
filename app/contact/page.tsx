@@ -86,7 +86,7 @@ export default function ContactPage() {
           </p>
           {/* Response time badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full"
-            style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
+            style={{ background: "rgba(34,197,94,0.1)", border: "1px solid #bbf7d0" }}>
             <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
             <span className="text-xs font-medium text-[#16a34a]">Reactietijd: binnen 24 uur</span>
           </div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-                  style={{ background: "#f0fdf4", border: "2px solid #bbf7d0" }}
+                  style={{ background: "rgba(34,197,94,0.1)", border: "2px solid #bbf7d0" }}
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4 4L19 7" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>

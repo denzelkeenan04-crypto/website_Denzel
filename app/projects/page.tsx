@@ -165,7 +165,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
             inset: 0,
             borderRadius: "1.5rem",
             overflow: "hidden",
-            background: "#fff",
+            background: "rgba(255,255,255,0.05)",
             border: "1px solid rgba(0,0,0,0.07)",
             boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
           }}
@@ -232,7 +232,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
             inset: 0,
             borderRadius: "1.5rem",
             padding: "1.75rem",
-            background: "#fff",
+            background: "rgba(255,255,255,0.05)",
             border: `1px solid ${p.color}30`,
             boxShadow: `0 8px 40px ${p.color}18, 0 2px 12px rgba(0,0,0,0.06)`,
           }}
@@ -378,7 +378,7 @@ export default function ProjectsPage() {
               transition={{ duration: 0.55, ease: "easeOut" }}
               className="group rounded-3xl overflow-hidden block"
               style={{
-                background: "#fff",
+                background: "rgba(255,255,255,0.05)",
                 border: "1px solid rgba(0,0,0,0.07)",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                 textDecoration: "none",
@@ -399,7 +399,7 @@ export default function ProjectsPage() {
                 />
                 <span
                   className="absolute top-4 right-4 text-[10px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5"
-                  style={{ background: "#f0fdf4", color: "#16a34a", border: "1px solid #bbf7d0" }}
+                  style={{ background: "rgba(34,197,94,0.1)", color: "#16a34a", border: "1px solid #bbf7d0" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] animate-pulse" />
                   Live
@@ -438,7 +438,7 @@ export default function ProjectsPage() {
               transition={{ duration: 0.55, delay: 0.07, ease: "easeOut" }}
               className="group rounded-3xl overflow-hidden block"
               style={{
-                background: "#fff",
+                background: "rgba(255,255,255,0.05)",
                 border: "1px solid rgba(0,0,0,0.07)",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                 textDecoration: "none",
@@ -465,7 +465,7 @@ export default function ProjectsPage() {
                 />
                 <span
                   className="absolute top-4 right-4 text-[10px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5"
-                  style={{ background: "#f0fdf4", color: "#16a34a", border: "1px solid #bbf7d0" }}
+                  style={{ background: "rgba(34,197,94,0.1)", color: "#16a34a", border: "1px solid #bbf7d0" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a] animate-pulse" />
                   Live
@@ -568,7 +568,7 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
                 className="group flex items-start gap-4 rounded-3xl p-6 transition-all duration-200 hover:shadow-lg"
                 style={{
-                  background: "#fff",
+                  background: "rgba(255,255,255,0.05)",
                   border: "1px solid rgba(0,0,0,0.07)",
                   boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                   textDecoration: "none",

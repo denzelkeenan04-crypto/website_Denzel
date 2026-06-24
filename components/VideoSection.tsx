@@ -207,18 +207,6 @@ export default function VideoSection() {
         x: 100,
         ease: 'power2.out',
       });
-
-      // Gentle parallax on phone (much slower fade-out)
-      gsap.to(phoneEl, {
-        scrollTrigger: {
-          trigger: section,
-          start: 'top center',
-          end: 'bottom 50%',
-          scrub: 2,
-        },
-        y: 20,
-        ease: 'none',
-      });
     }
 
     return () => {

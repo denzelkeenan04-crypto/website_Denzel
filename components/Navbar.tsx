@@ -28,7 +28,7 @@ export default function Navbar() {
         <nav
           className="flex items-center justify-between px-6 py-3.5 rounded-2xl"
           style={{
-            background: "rgba(10,10,10,0.95)",
+            background: "rgba(255,255,255,0.88)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             border: "1px solid rgba(0,0,0,0.07)",

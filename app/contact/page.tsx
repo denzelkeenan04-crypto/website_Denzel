@@ -237,18 +237,18 @@ export default function ContactPage() {
                 border: "1px solid rgba(124,58,237,0.12)",
               }}
             >
-              <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-center gap-2 mb-4">
                 <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-                <span className="text-xs font-semibold text-[#09090b]">Beschikbaar</span>
+                <span className="text-sm font-semibold" style={{ color: "#000000" }}>Beschikbaar</span>
               </div>
-              <p className="text-sm font-bold text-[#09090b]">Wat ik zoek</p>
-              <ul className="space-y-1.5">
+              <p className="text-base font-bold mb-3" style={{ color: "#000000" }}>Wat ik zoek</p>
+              <ul className="space-y-2">
                 {[
                   "Freelance marketing opdrachten",
                   "Content en SEO projecten",
                   "Toekomstige stages (2027)",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-xs text-[#09090b]">
+                  <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "#000000" }}>
                     <span className="w-1 h-1 rounded-full bg-[#7c3aed] flex-shrink-0" />
                     {item}
                   </li>

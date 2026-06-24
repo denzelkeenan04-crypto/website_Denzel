@@ -59,7 +59,7 @@ export default function ContactPage() {
   }
 
   const inputBase = "w-full px-4 py-3.5 rounded-2xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-[#7c3aed]/20 text-white placeholder-white/60";
-  const inputStyle = { background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" };
+  const inputStyle = { background: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)" };
 
   return (
     <main className="pt-32 pb-24 px-6">
@@ -205,7 +205,7 @@ export default function ContactPage() {
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
                 className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  background: "rgba(255,255,255,0.05)",
+                  background: "#0a0a0a",
                   border: "1px solid rgba(255,255,255,0.1)",
                   boxShadow: "0 2px 8px rgba(124,58,237,0.05)",
                   color: "rgba(255,255,255,0.7)",
@@ -260,7 +260,7 @@ export default function ContactPage() {
             {/* Location */}
             <div
               className="rounded-2xl px-5 py-4 flex items-center gap-3"
-              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+              style={{ background: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)" }}
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="#a1a1aa"/>

@@ -252,7 +252,7 @@ function StilteFotoCard({ a, i }: { a: Assignment; i: number }) {
       transition={{ duration: 0.6, delay: i * 0.07, ease: "easeOut" }}
       className="rounded-3xl overflow-hidden md:col-span-2"
       style={{
-        background: "rgba(255,255,255,0.05)",
+        background: "#0a0a0a",
         border: "1px solid rgba(0,0,0,0.07)",
         boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
       }}
@@ -361,7 +361,7 @@ function StilteFotoCard({ a, i }: { a: Assignment; i: number }) {
           {a.feedback.length > 0 && (
             <div
               className="rounded-2xl p-4 mt-6 mb-2"
-              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.06)" }}
+              style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.06)" }}
             >
               <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-2.5 flex items-center gap-1.5">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
@@ -411,7 +411,7 @@ function RegularCard({ a, i }: { a: Assignment; i: number }) {
         rel="noopener noreferrer"
         className="block rounded-3xl overflow-hidden group transition-transform duration-200 hover:-translate-y-1"
         style={{
-          background: "rgba(255,255,255,0.05)",
+          background: "#0a0a0a",
           border: "1px solid rgba(0,0,0,0.07)",
           boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
           textDecoration: "none",
@@ -466,7 +466,7 @@ function RegularCard({ a, i }: { a: Assignment; i: number }) {
           {a.feedback.length > 0 && (
             <div
               className="rounded-2xl p-4 mb-5"
-              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.06)" }}
+              style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.06)" }}
             >
               <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-2.5 flex items-center gap-1.5">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
@@ -511,7 +511,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="rounded-3xl overflow-hidden"
       style={{
-        background: "rgba(255,255,255,0.05)",
+        background: "#0a0a0a",
         border: `1px solid ${a.color}30`,
         boxShadow: `0 8px 48px ${a.color}15, 0 4px 16px rgba(0,0,0,0.06)`,
       }}
@@ -625,7 +625,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
         {a.feedback.length > 0 && (
           <div
             className="rounded-2xl p-4 mb-5"
-            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.06)" }}
+            style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.06)" }}
           >
             <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-2.5 flex items-center gap-1.5">
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
@@ -702,7 +702,7 @@ export default function VormgevingPage() {
             <div
               key={l}
               className="flex items-center gap-3 px-5 py-3 rounded-2xl"
-              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.06)" }}
+              style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.06)" }}
             >
               <span className="text-xl font-black text-white">{v}</span>
               <span className="text-xs text-white/60">{l}</span>

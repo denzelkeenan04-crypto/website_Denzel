@@ -142,7 +142,7 @@ export default function ExperiencePage() {
                 <div
                   className="rounded-3xl p-8"
                   style={{
-                    background: "rgba(255,255,255,0.05)",
+                    background: "#0a0a0a",
                     border: "1px solid rgba(0,0,0,0.07)",
                     boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                   }}

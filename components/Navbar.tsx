@@ -28,7 +28,7 @@ export default function Navbar() {
         <nav
           className="flex items-center justify-between px-6 py-3.5 rounded-2xl"
           style={{
-            background: "rgba(255,255,255,0.88)",
+            background: "rgba(10,10,10,0.95)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             border: "1px solid rgba(0,0,0,0.07)",
@@ -43,8 +43,9 @@ export default function Navbar() {
               width={40}
               height={40}
               className="object-contain w-10 h-10"
+              style={{ filter: "brightness(0.6) saturate(1.2)" }}
             />
-            <span className="text-sm font-semibold text-[#09090b]/70 group-hover:text-[#09090b] transition-colors duration-200">
+            <span className="text-sm font-semibold text-[#09090b] group-hover:text-[#09090b] transition-colors duration-200">
               Denzel Keenan
             </span>
           </Link>

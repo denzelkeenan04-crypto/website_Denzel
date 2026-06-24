@@ -185,7 +185,7 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: ci * 0.08, ease: "easeOut" }}
                   className="rounded-2xl p-6"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+                  style={{ background: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)" }}
                 >
                   <p className="text-xs font-bold text-white mb-4 uppercase tracking-wide">{cat}</p>
                   <ul className="space-y-2">

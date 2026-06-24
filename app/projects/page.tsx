@@ -618,14 +618,14 @@ export default function ProjectsPage() {
           transition={{ duration: 0.65, ease: "easeOut" }}
           className="mt-16 rounded-3xl p-10 text-center"
           style={{
-            background: "linear-gradient(135deg, #faf5ff 0%, #f0f9ff 100%)",
-            border: "1px solid rgba(124,58,237,0.1)",
+            background: "#ffffff",
+            border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1rem", color: "#000000" }}>
+          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "#000000 !important", display: "block" }}>
             Wil je samenwerken?
           </h2>
-          <p style={{ fontSize: "1rem", marginBottom: "2rem", maxWidth: "28rem", margin: "0 auto 2rem", color: "#000000" }}>
+          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "#000000 !important", display: "block" }}>
             Ik leer snel en pak nieuwe vaardigheden graag op. Neem contact op.
           </p>
           <a

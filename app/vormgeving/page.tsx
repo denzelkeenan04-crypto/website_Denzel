@@ -734,14 +734,14 @@ export default function VormgevingPage() {
           transition={{ duration: 0.65, ease: "easeOut" }}
           className="mt-12 rounded-3xl p-10 text-center"
           style={{
-            background: "linear-gradient(135deg, #faf5ff 0%, #f0f9ff 100%)",
-            border: "1px solid rgba(124,58,237,0.1)",
+            background: "#ffffff",
+            border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1rem", color: "#000000" }}>
+          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "#000000 !important", display: "block" }}>
             Meer van mijn werk zien?
           </h2>
-          <p style={{ fontSize: "1rem", marginBottom: "2rem", maxWidth: "28rem", margin: "0 auto 2rem", color: "#000000" }}>
+          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "#000000 !important", display: "block" }}>
             Bekijk ook mijn stage-projecten bij Brandmerck of neem direct contact op.
           </p>
           <div className="flex items-center justify-center gap-3 flex-wrap">

@@ -102,7 +102,7 @@ const ASSIGNMENTS: Assignment[] = [
     lightColor: "#e0f2fe",
   },
   {
-    num: "06",
+    num: "05",
     title: "Flyer",
     category: "Print & digitaal",
     points: 2,
@@ -121,7 +121,7 @@ const ASSIGNMENTS: Assignment[] = [
     lightColor: "#dcfce7",
   },
   {
-    num: "07",
+    num: "06",
     title: "Vacature",
     category: "Print & digitaal",
     points: 2,
@@ -140,7 +140,7 @@ const ASSIGNMENTS: Assignment[] = [
     lightColor: "#ede9fe",
   },
   {
-    num: "09",
+    num: "07",
     title: "Nieuwsbericht",
     category: "Schrijven & vormgeving",
     points: 3,

@@ -47,7 +47,7 @@ export default function Footer() {
   return (
     <footer
       className="border-t mt-0"
-      style={{ borderColor: "rgba(0,0,0,0.07)", background: "#fafafa" }}
+      style={{ borderColor: "rgba(255,255,255,0.1)", background: "#0a0a0a" }}
     >
       {/* Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-14">
@@ -63,9 +63,9 @@ export default function Footer() {
                 height={36}
                 className="object-contain"
               />
-              <span className="font-semibold text-[#09090b]">Denzel Keenan</span>
+              <span className="font-semibold text-white">Denzel Keenan</span>
             </div>
-            <p className="text-sm text-[#71717a] leading-relaxed max-w-xs">
+            <p className="text-sm text-white/70 leading-relaxed max-w-xs">
               Marketing & Communicatie student uit Friesland.
               Bezig met leren, bouwen en groeien in digitale communicatie.
             </p>
@@ -80,13 +80,13 @@ export default function Footer() {
 
           {/* Navigatie */}
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#a1a1aa] mb-4">Navigatie</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/60 mb-4">Navigatie</p>
             <ul className="space-y-2.5">
               {NAV.map(({ label, href }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-[#71717a] hover:text-[#09090b] transition-colors duration-150"
+                    className="text-sm text-white/70 hover:text-white transition-colors duration-150"
                   >
                     {label}
                   </Link>
@@ -97,7 +97,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#a1a1aa] mb-4">Contact</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/60 mb-4">Contact</p>
             <ul className="space-y-3">
               {SOCIALS.map(({ label, href, icon }) => (
                 <li key={label}>
@@ -105,9 +105,9 @@ export default function Footer() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noreferrer" : undefined}
-                    className="flex items-center gap-2.5 text-sm text-[#71717a] hover:text-[#09090b] transition-colors duration-150 group"
+                    className="flex items-center gap-2.5 text-sm text-white/70 hover:text-white transition-colors duration-150 group"
                   >
-                    <span className="text-[#a1a1aa] group-hover:text-[#09090b] transition-colors">{icon}</span>
+                    <span className="text-white/60 group-hover:text-white transition-colors">{icon}</span>
                     {label}
                   </a>
                 </li>
@@ -120,13 +120,13 @@ export default function Footer() {
       {/* Bottom bar */}
       <div
         className="border-t"
-        style={{ borderColor: "rgba(0,0,0,0.06)" }}
+        style={{ borderColor: "rgba(255,255,255,0.1)" }}
       >
         <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-xs text-[#a1a1aa]">
+          <p className="text-xs text-white/60">
             © {year} Denzel Keenan. Alle rechten voorbehouden.
           </p>
-          <p className="text-xs text-[#a1a1aa]">
+          <p className="text-xs text-white/60">
             Gebouwd met Next.js · Friesland, Nederland
           </p>
         </div>

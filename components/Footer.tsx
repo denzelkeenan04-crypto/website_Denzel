@@ -56,14 +56,24 @@ export default function Footer() {
           {/* Brand + tagline */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <Image
-                src="/images/logo.png"
-                alt="DK logo"
-                width={36}
-                height={36}
-                className="object-contain opacity-90"
-                style={{ clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 60% 100%)" }}
-              />
+              <div className="flex gap-0 items-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="DK logo"
+                  width={36}
+                  height={36}
+                  className="object-contain opacity-90"
+                  style={{ clipPath: "polygon(0%, 0%, 60%, 0%, 60%, 100%, 0%, 100%)" }}
+                />
+                <Image
+                  src="/images/logo.png"
+                  alt="DK logo"
+                  width={36}
+                  height={36}
+                  className="object-contain opacity-90"
+                  style={{ clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 60% 100%)" }}
+                />
+              </div>
               <span className="font-semibold text-white">Denzel Keenan</span>
             </div>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">

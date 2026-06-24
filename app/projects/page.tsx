@@ -622,10 +622,10 @@ export default function ProjectsPage() {
             border: "1px solid rgba(124,58,237,0.1)",
           }}
         >
-          <h2 className="text-2xl font-black tracking-tight mb-2" style={{ color: "#09090b" }}>
+          <h2 className="text-2xl font-black tracking-tight mb-4" style={{ color: "#000000" }}>
             Wil je samenwerken?
           </h2>
-          <p className="text-sm mb-6 max-w-sm mx-auto" style={{ color: "#09090b" }}>
+          <p className="text-base mb-8 max-w-sm mx-auto" style={{ color: "#000000" }}>
             Ik leer snel en pak nieuwe vaardigheden graag op. Neem contact op.
           </p>
           <a

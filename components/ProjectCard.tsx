@@ -70,7 +70,7 @@ export default function ProjectCard({ p, i }: { p: Project; i: number }) {
           <div className="text-right">
             <span
               className="text-[10px] font-mono px-2.5 py-1 rounded-full text-[#71717a]"
-              style={{ background: "#f4f4f5", border: "1px solid #e4e4e7" }}
+              style={{ background: "#1a1a1a", border: "1px solid #e4e4e7" }}
             >
               {p.year}
             </span>
@@ -95,7 +95,7 @@ export default function ProjectCard({ p, i }: { p: Project; i: number }) {
             <span
               key={t}
               className="text-[10px] px-2.5 py-1 rounded-full text-[#52525b]"
-              style={{ background: "#f4f4f5", border: "1px solid #e4e4e7" }}
+              style={{ background: "#1a1a1a", border: "1px solid #e4e4e7" }}
             >
               {t}
             </span>

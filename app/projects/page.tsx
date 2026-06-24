@@ -207,7 +207,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
                 <span
                   key={t}
                   className="text-[10px] px-2.5 py-1 rounded-full text-white/80"
-                  style={{ background: "#f4f4f5", border: "1px solid #e4e4e7" }}
+                  style={{ background: "#1a1a1a", border: "1px solid #e4e4e7" }}
                 >
                   {t}
                 </span>

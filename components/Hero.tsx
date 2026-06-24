@@ -231,7 +231,7 @@ export default function Hero() {
             >
               <span
                 className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium text-[#52525b]"
-                style={{ background: "#f4f4f5", border: "1px solid rgba(0,0,0,0.07)" }}
+                style={{ background: "#1a1a1a", border: "1px solid rgba(0,0,0,0.07)" }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
                 Beschikbaar voor nieuwe opdrachten

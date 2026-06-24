@@ -61,7 +61,8 @@ export default function Footer() {
                 alt="DK logo"
                 width={36}
                 height={36}
-                className="object-contain"
+                className="object-contain opacity-90"
+                style={{ filter: 'brightness(1.2) contrast(1.1)' }}
               />
               <span className="font-semibold text-white">Denzel Keenan</span>
             </div>

@@ -213,7 +213,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
                 </span>
               ))}
             </div>
-            <p className="text-[11px] text-white/60 flex items-center gap-1.5 mt-auto">
+            <p className="text-[11px] text-white/70 flex items-center gap-1.5 mt-auto font-medium">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                 <path d="M6 1v5l3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
               </svg>
@@ -256,7 +256,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
             </div>
           </div>
 
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-3">Wat ik leerde</p>
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-white/70 mb-3">Wat ik leerde</p>
           <ul className="space-y-2.5 mb-5">
             {p.learned.map((l) => (
               <li key={l} className="flex items-start gap-2.5 text-xs text-white/80 leading-relaxed">
@@ -278,7 +278,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
             ))}
           </div>
 
-          <p className="text-[11px] text-white/60 flex items-center gap-1.5 mt-4">
+          <p className="text-[11px] text-white/70 flex items-center gap-1.5 mt-4 font-medium">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M6 1v5l3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
             </svg>
@@ -335,7 +335,7 @@ export default function ProjectsPage() {
               style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
             >
               <span className="text-xl font-black text-white">{v}</span>
-              <span className="text-xs text-white/60">{l}</span>
+              <span className="text-xs text-white/70">{l}</span>
             </div>
           ))}
         </motion.div>
@@ -414,7 +414,7 @@ export default function ProjectsPage() {
                     <path d="M2 12L12 2M12 2H6M12 2v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <p className="text-xs text-white/70 leading-relaxed mb-4">
+                <p className="text-xs text-white/80 leading-relaxed mb-4">
                   Toeristische evenementenwebsite voor de kust van Friesland. Pagina's opgebouwd in Elementor, navigatiestructuur ingericht, afbeeldingen geoptimaliseerd en SEO via Yoast ingesteld.
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -480,7 +480,7 @@ export default function ProjectsPage() {
                     <path d="M2 12L12 2M12 2H6M12 2v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <p className="text-xs text-white/70 leading-relaxed mb-4">
+                <p className="text-xs text-white/80 leading-relaxed mb-4">
                   Website voor een restaurant, volledig opgebouwd met Elementor. Huisstijl doorgevoerd, menustructuur ingericht en de site mobielvriendelijk gemaakt.
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -594,7 +594,7 @@ export default function ProjectsPage() {
                       {doc.type === "pdf" ? "Openen" : "Download"}
                     </span>
                   </div>
-                  <p className="text-xs text-white/70 leading-relaxed mb-2">{doc.desc}</p>
+                  <p className="text-xs text-white/80 leading-relaxed mb-2">{doc.desc}</p>
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-mono text-white/60">{doc.meta}</span>
                     <svg
@@ -622,10 +622,10 @@ export default function ProjectsPage() {
             border: "1px solid rgba(124,58,237,0.1)",
           }}
         >
-          <h2 className="text-2xl font-black tracking-tight text-white mb-2">
+          <h2 className="text-2xl font-black tracking-tight text-[#09090b] mb-2">
             Wil je samenwerken?
           </h2>
-          <p className="text-sm text-white/70 mb-6 max-w-sm mx-auto">
+          <p className="text-sm text-white/80 mb-6 max-w-sm mx-auto">
             Ik leer snel en pak nieuwe vaardigheden graag op. Neem contact op.
           </p>
           <a

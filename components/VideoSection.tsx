@@ -187,7 +187,7 @@ export default function VideoSection() {
           trigger: section,
           start: 'top 60%',
           end: 'top 20%',
-          scrub: 1,
+          scrub: 1.5,
         },
         opacity: 0,
         x: -100,
@@ -200,8 +200,8 @@ export default function VideoSection() {
         scrollTrigger: {
           trigger: section,
           start: 'top 70%',
-          end: 'top 30%',
-          scrub: 1,
+          end: 'top 20%',
+          scrub: 1.5,
         },
         opacity: 0,
         x: 100,
@@ -213,10 +213,10 @@ export default function VideoSection() {
         scrollTrigger: {
           trigger: section,
           start: 'top center',
-          end: 'bottom 20%',
-          scrub: 1,
+          end: 'bottom 50%',
+          scrub: 2,
         },
-        y: 30,
+        y: 20,
         ease: 'none',
       });
     }

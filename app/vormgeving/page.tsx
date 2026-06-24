@@ -304,18 +304,18 @@ function StilteFotoCard({ a, i }: { a: Assignment; i: number }) {
             {a.category}
           </p>
           <div className="flex items-center justify-between gap-4">
-            <h3 className="text-xl font-black tracking-tight text-[#09090b]">{a.title}</h3>
+            <h3 className="text-xl font-black tracking-tight text-white">{a.title}</h3>
             <div
               className="flex-shrink-0 transition-transform duration-300"
               style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path d="M4 7l5 5 5-5" stroke="#a1a1aa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4 7l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'rgba(255,255,255,0.6)' }}/>
               </svg>
             </div>
           </div>
-          <p className="text-sm text-[#71717a] leading-relaxed mt-2">{a.story}</p>
-          <p className="text-[11px] text-[#a1a1aa] flex items-center gap-1.5 mt-4 mb-2">
+          <p className="text-sm text-white/70 leading-relaxed mt-2">{a.story}</p>
+          <p className="text-[11px] text-white/60 flex items-center gap-1.5 mt-4 mb-2">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M6 1v5l3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
             </svg>
@@ -351,8 +351,8 @@ function StilteFotoCard({ a, i }: { a: Assignment; i: number }) {
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
-                <p className="text-sm font-bold text-[#09090b] mb-1.5">{foto.title}</p>
-                <p className="text-xs text-[#71717a] leading-relaxed">{foto.caption}</p>
+                <p className="text-sm font-bold text-white mb-1.5">{foto.title}</p>
+                <p className="text-xs text-white/70 leading-relaxed">{foto.caption}</p>
               </div>
             ))}
           </div>
@@ -363,15 +363,15 @@ function StilteFotoCard({ a, i }: { a: Assignment; i: number }) {
               className="rounded-2xl p-4 mt-6 mb-2"
               style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.06)" }}
             >
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-[#a1a1aa] mb-2.5 flex items-center gap-1.5">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-2.5 flex items-center gap-1.5">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                  <path d="M1 3h9M1 5.5h6M1 8h4" stroke="#a1a1aa" strokeWidth="1.3" strokeLinecap="round"/>
+                  <path d="M1 3h9M1 5.5h6M1 8h4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
                 </svg>
                 Feedback verwerkt
               </p>
               <ul className="space-y-1.5">
                 {a.feedback.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-xs text-[#52525b] leading-relaxed">
+                  <li key={f} className="flex items-start gap-2 text-xs text-white/70 leading-relaxed">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: a.color }} />
                     {f}
                   </li>
@@ -459,8 +459,8 @@ function RegularCard({ a, i }: { a: Assignment; i: number }) {
           <p className="text-[10px] font-mono uppercase tracking-wide mb-1" style={{ color: a.color }}>
             {a.category}
           </p>
-          <h3 className="text-xl font-black tracking-tight text-[#09090b] mb-4">{a.title}</h3>
-          <p className="text-sm text-[#71717a] leading-relaxed mb-5">{a.story}</p>
+          <h3 className="text-xl font-black tracking-tight text-white mb-4">{a.title}</h3>
+          <p className="text-sm text-white/70 leading-relaxed mb-5">{a.story}</p>
 
           {/* Feedback verwerkt */}
           {a.feedback.length > 0 && (
@@ -468,15 +468,15 @@ function RegularCard({ a, i }: { a: Assignment; i: number }) {
               className="rounded-2xl p-4 mb-5"
               style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.06)" }}
             >
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-[#a1a1aa] mb-2.5 flex items-center gap-1.5">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-2.5 flex items-center gap-1.5">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                  <path d="M1 3h9M1 5.5h6M1 8h4" stroke="#a1a1aa" strokeWidth="1.3" strokeLinecap="round"/>
+                  <path d="M1 3h9M1 5.5h6M1 8h4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
                 </svg>
                 Feedback verwerkt
               </p>
               <ul className="space-y-1.5">
                 {a.feedback.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-xs text-[#52525b] leading-relaxed">
+                  <li key={f} className="flex items-start gap-2 text-xs text-white/70 leading-relaxed">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: a.color }} />
                     {f}
                   </li>
@@ -536,7 +536,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
             <p className="text-[10px] font-mono uppercase tracking-wide mb-1" style={{ color: a.color }}>
               {a.category}
             </p>
-            <h3 className="text-2xl font-black tracking-tight text-[#09090b]">{a.title}</h3>
+            <h3 className="text-2xl font-black tracking-tight text-white">{a.title}</h3>
           </div>
           <div
             className="w-12 h-12 rounded-2xl flex items-center justify-center text-sm font-black text-white flex-shrink-0"
@@ -546,7 +546,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
           </div>
         </div>
 
-        <p className="text-sm text-[#71717a] leading-relaxed mb-8 max-w-3xl">{a.story}</p>
+        <p className="text-sm text-white/70 leading-relaxed mb-8 max-w-3xl">{a.story}</p>
 
         {/* Banners image */}
         {a.img && (
@@ -564,7 +564,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
         {/* Video */}
         {a.video && (
           <div className="mb-6">
-            <p className="text-xs font-semibold text-[#3f3f46] mb-3 flex items-center gap-2">
+            <p className="text-xs font-semibold text-white/70 mb-3 flex items-center gap-2">
               <span
                 className="w-5 h-5 rounded-md flex items-center justify-center"
                 style={{ background: `${a.color}18` }}
@@ -597,9 +597,9 @@ function FeaturedCard({ a }: { a: Assignment }) {
         {/* Tweede video */}
         {a.video2 && (
           <div className="mb-6">
-            <p className="text-[10px] font-semibold uppercase tracking-wide text-[#a1a1aa] mb-2 flex items-center gap-1.5">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-2 flex items-center gap-1.5">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                <path d="M2 2l6 3-6 3V2z" fill="#a1a1aa"/>
+                <path d="M2 2l6 3-6 3V2z" fill="currentColor"/>
               </svg>
               Video 2
             </p>
@@ -627,15 +627,15 @@ function FeaturedCard({ a }: { a: Assignment }) {
             className="rounded-2xl p-4 mb-5"
             style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.06)" }}
           >
-            <p className="text-[10px] font-semibold uppercase tracking-wide text-[#a1a1aa] mb-2.5 flex items-center gap-1.5">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-2.5 flex items-center gap-1.5">
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                <path d="M1 3h9M1 5.5h6M1 8h4" stroke="#a1a1aa" strokeWidth="1.3" strokeLinecap="round"/>
+                <path d="M1 3h9M1 5.5h6M1 8h4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
               </svg>
               Feedback verwerkt
             </p>
             <ul className="space-y-1.5">
               {a.feedback.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-xs text-[#52525b] leading-relaxed">
+                <li key={f} className="flex items-start gap-2 text-xs text-white/70 leading-relaxed">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: a.color }} />
                   {f}
                 </li>
@@ -704,8 +704,8 @@ export default function VormgevingPage() {
               className="flex items-center gap-3 px-5 py-3 rounded-2xl"
               style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.06)" }}
             >
-              <span className="text-xl font-black text-[#09090b]">{v}</span>
-              <span className="text-xs text-[#a1a1aa]">{l}</span>
+              <span className="text-xl font-black text-white">{v}</span>
+              <span className="text-xs text-white/60">{l}</span>
             </div>
           ))}
         </motion.div>
@@ -757,8 +757,8 @@ export default function VormgevingPage() {
             </a>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium text-[#09090b]"
-              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(0,0,0,0.1)" }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium text-white"
+              style={{ background: "#09090b" }}
             >
               Contact opnemen
             </a>

@@ -101,15 +101,15 @@ export default function ExperiencePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className="text-xs font-mono uppercase tracking-[0.18em] text-[#a1a1aa] mb-4">/ Ervaring</p>
+          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-4">/ Ervaring</p>
           <h1
-            className="font-black tracking-[-0.04em] leading-[1.05] text-[#09090b] mb-6"
+            className="font-black tracking-[-0.04em] leading-[1.05] text-white mb-6"
             style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
           >
             Werkervaring &{" "}
             <span className="text-accent">stage</span>.
           </h1>
-          <p className="text-lg text-[#71717a] leading-relaxed max-w-xl">
+          <p className="text-lg text-white/70 leading-relaxed max-w-xl">
             Van horeca tot marketing bureau — elk hoofdstuk leerde me iets nieuws.
           </p>
         </motion.div>
@@ -155,14 +155,14 @@ export default function ExperiencePage() {
                         style={{ background: lightColor }}
                       />
                       <div>
-                        <p className="text-base font-bold text-[#09090b]">{title}</p>
-                        <p className="text-xs text-[#71717a]">{company} · {location}</p>
+                        <p className="text-base font-bold text-white">{title}</p>
+                        <p className="text-xs text-white/70">{company} · {location}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       <span
-                        className="text-[10px] font-mono px-2.5 py-1 rounded-full text-[#71717a]"
-                        style={{ background: "#f4f4f5", border: "1px solid #e4e4e7" }}
+                        className="text-[10px] font-mono px-2.5 py-1 rounded-full text-white/70"
+                        style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}
                       >
                         {period}
                       </span>
@@ -180,7 +180,7 @@ export default function ExperiencePage() {
                   {/* Points */}
                   <ul className="space-y-2.5">
                     {points.map((p) => (
-                      <li key={p} className="flex items-start gap-3 text-sm text-[#71717a]">
+                      <li key={p} className="flex items-start gap-3 text-sm text-white/80">
                         <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2" style={{ background: color }} />
                         {p}
                       </li>
@@ -190,9 +190,9 @@ export default function ExperiencePage() {
                   {/* Deliverables */}
                   {deliverables && (
                     <div className="mt-6 pt-6" style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-[#a1a1aa] mb-3 flex items-center gap-1.5">
+                      <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-3 flex items-center gap-1.5">
                         <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                          <path d="M2 1h7a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zM1 4h9" stroke="#a1a1aa" strokeWidth="1.2" strokeLinecap="round"/>
+                          <path d="M2 1h7a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zM1 4h9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" style={{ color: 'rgba(255,255,255,0.6)' }}/>
                         </svg>
                         Opgeleverde documenten & activiteiten
                       </p>
@@ -206,7 +206,7 @@ export default function ExperiencePage() {
                             <span className="text-base leading-none mt-0.5">{d.icon}</span>
                             <div>
                               <p className="text-xs font-semibold text-[#09090b]">{d.label}</p>
-                              <p className="text-[10px] text-[#71717a] leading-snug mt-0.5">{d.sub}</p>
+                              <p className="text-[10px] text-white/70 leading-snug mt-0.5">{d.sub}</p>
                             </div>
                           </div>
                         ))}
@@ -228,7 +228,7 @@ export default function ExperiencePage() {
           className="mt-16 rounded-3xl p-8"
           style={{ background: "linear-gradient(135deg, #faf5ff 0%, #f0f9ff 100%)", border: "1px solid rgba(124,58,237,0.12)" }}
         >
-          <p className="text-xs font-mono uppercase tracking-[0.18em] text-[#a1a1aa] mb-5">Opleiding</p>
+          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-5">Opleiding</p>
           <div className="flex items-center gap-4">
             <div
               className="w-12 h-12 rounded-2xl flex items-center justify-center text-lg font-black text-white flex-shrink-0"
@@ -237,8 +237,8 @@ export default function ExperiencePage() {
               F
             </div>
             <div>
-              <p className="text-base font-bold text-[#09090b]">MBO Marketing & Communicatie</p>
-              <p className="text-sm text-[#71717a]">Firda · Sneek · Aug 2025 – Jun 2027</p>
+              <p className="text-base font-bold text-white">MBO Marketing & Communicatie</p>
+              <p className="text-sm text-white/70">Firda · Sneek · Aug 2025 – Jun 2027</p>
             </div>
             <span
               className="ml-auto text-[10px] px-2.5 py-1 rounded-full font-medium text-[#16a34a] flex-shrink-0"

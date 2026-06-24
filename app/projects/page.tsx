@@ -622,7 +622,7 @@ export default function ProjectsPage() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "#000000 !important", display: "block" }}>
+          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "#7c3aed !important", display: "block" }}>
             Wil je samenwerken?
           </h2>
           <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "#000000 !important", display: "block" }}>

@@ -237,7 +237,7 @@ export default function ExperiencePage() {
               F
             </div>
             <div>
-              <p style={{ fontSize: "1rem", fontWeight: 700, color: "#000000" }}>MBO Marketing & Communicatie</p>
+              <p style={{ fontSize: "1rem", fontWeight: 700, color: "#7c3aed" }}>MBO Marketing & Communicatie</p>
               <p style={{ fontSize: "0.875rem", color: "#000000" }}>Firda · Sneek · Aug 2025 – Jun 2027</p>
             </div>
             <span

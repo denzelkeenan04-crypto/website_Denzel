@@ -38,7 +38,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 select-none group">
             <Image
-              src="/images/logo-dark.png"
+              src="/images/logo.png"
               alt="DK logo"
               width={40}
               height={40}

@@ -239,9 +239,9 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-                <span className="text-xs font-semibold text-white">Beschikbaar</span>
+                <span className="text-xs font-semibold text-[#09090b]>Beschikbaar</span>
               </div>
-              <p className="text-sm font-bold text-white mb-2">Wat ik zoek</p>
+              <p className="text-sm font-bold text-[#09090b]>Wat ik zoek</p>
               <ul className="space-y-1.5">
                 {[
                   "Freelance marketing opdrachten",

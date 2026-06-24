@@ -228,7 +228,7 @@ export default function ExperiencePage() {
           className="mt-16 rounded-3xl p-8"
           style={{ background: "linear-gradient(135deg, #faf5ff 0%, #f0f9ff 100%)", border: "1px solid rgba(124,58,237,0.12)" }}
         >
-          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-5">Opleiding</p>
+          <p className="text-xs font-mono uppercase tracking-[0.18em] text-[#09090b]/60 mb-5">Opleiding</p>
           <div className="flex items-center gap-4">
             <div
               className="w-12 h-12 rounded-2xl flex items-center justify-center text-lg font-black text-white flex-shrink-0"
@@ -237,11 +237,11 @@ export default function ExperiencePage() {
               F
             </div>
             <div>
-              <p className="text-base font-bold text-white">MBO Marketing & Communicatie</p>
-              <p className="text-sm text-white/70">Firda · Sneek · Aug 2025 – Jun 2027</p>
+              <p className="text-base font-bold text-[#09090b]">MBO Marketing & Communicatie</p>
+              <p className="text-sm text-[#09090b]/70">Firda · Sneek · Aug 2025 – Jun 2027</p>
             </div>
             <span
-              className="ml-auto text-[10px] px-2.5 py-1 rounded-full font-medium text-white flex-shrink-0"
+              className="ml-auto text-[10px] px-2.5 py-1 rounded-full font-medium text-[#09090b] flex-shrink-0"
               style={{ background: "rgba(34,197,94,0.25)", border: "1px solid #bbf7d0" }}
             >
               Huidig

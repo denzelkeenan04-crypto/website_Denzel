@@ -738,10 +738,10 @@ export default function VormgevingPage() {
             border: "1px solid rgba(124,58,237,0.1)",
           }}
         >
-          <h2 className="text-2xl font-black tracking-tight text-[#09090b] mb-2">
+          <h2 className="text-2xl font-black tracking-tight mb-4" style={{ color: "#000000" }}>
             Meer van mijn werk zien?
           </h2>
-          <p className="text-sm text-[#09090b] mb-6 max-w-sm mx-auto">
+          <p className="text-base mb-8 max-w-sm mx-auto" style={{ color: "#000000" }}>
             Bekijk ook mijn stage-projecten bij Brandmerck of neem direct contact op.
           </p>
           <div className="flex items-center justify-center gap-3 flex-wrap">

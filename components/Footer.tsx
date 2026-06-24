@@ -61,7 +61,7 @@ export default function Footer() {
                 alt="DK logo"
                 width={36}
                 height={36}
-                className="object-contain opacity-90"
+                className="object-contain opacity-90" style={{clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 60% 100%)"}}
                 style={{ filter: 'brightness(2) invert(1) saturate(1.5)' }}
               />
               <span className="font-semibold text-white">Denzel Keenan</span>

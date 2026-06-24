@@ -42,7 +42,7 @@ export default function Navbar() {
               alt="DK logo"
               width={40}
               height={40}
-              className="object-contain w-10 h-10"
+              className="object-contain w-10 h-10" style={{clipPath: "polygon(60% 0%, 100% 0%, 100% 100%, 60% 100%)"}}
               style={{ filter: "brightness(1.8) invert(1)" }}
             />
             <span className="text-sm font-semibold text-[#09090b] group-hover:text-[#09090b] transition-colors duration-200">

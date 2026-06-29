@@ -190,9 +190,9 @@ export default function ExperiencePage() {
                   {/* Deliverables */}
                   {deliverables && (
                     <div className="mt-6 pt-6" style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-white/60 mb-3 flex items-center gap-1.5">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-white mb-3 flex items-center gap-1.5">
                         <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                          <path d="M2 1h7a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zM1 4h9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" style={{ color: 'rgba(255,255,255,0.6)' }}/>
+                          <path d="M2 1h7a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1zM1 4h9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" style={{ color: 'rgba(255,255,255,1)' }}/>
                         </svg>
                         Opgeleverde documenten & activiteiten
                       </p>
@@ -206,7 +206,7 @@ export default function ExperiencePage() {
                             <span className="text-base leading-none mt-0.5">{d.icon}</span>
                             <div>
                               <p className="text-xs font-semibold text-[#09090b]">{d.label}</p>
-                              <p className="text-[10px] text-white/70 leading-snug mt-0.5">{d.sub}</p>
+                              <p className="text-[10px] text-[#09090b] leading-snug mt-0.5">{d.sub}</p>
                             </div>
                           </div>
                         ))}

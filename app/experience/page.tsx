@@ -101,7 +101,7 @@ export default function ExperiencePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-4">/ Ervaring</p>
+          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white mb-4">/ Ervaring</p>
           <h1
             className="font-black tracking-[-0.04em] leading-[1.05] text-white mb-6"
             style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
@@ -109,7 +109,7 @@ export default function ExperiencePage() {
             Werkervaring &{" "}
             <span className="text-accent">stage</span>.
           </h1>
-          <p className="text-lg text-white/70 leading-relaxed max-w-xl">
+          <p className="text-lg text-white leading-relaxed max-w-xl">
             Van horeca tot marketing bureau — elk hoofdstuk leerde me iets nieuws.
           </p>
         </motion.div>
@@ -156,12 +156,12 @@ export default function ExperiencePage() {
                       />
                       <div>
                         <p className="text-base font-bold text-white">{title}</p>
-                        <p className="text-xs text-white/70">{company} · {location}</p>
+                        <p className="text-xs text-white">{company} · {location}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       <span
-                        className="text-[10px] font-mono px-2.5 py-1 rounded-full text-white/70"
+                        className="text-[10px] font-mono px-2.5 py-1 rounded-full text-white"
                         style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}
                       >
                         {period}

@@ -72,7 +72,7 @@ export default function ContactPage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-16 max-w-2xl"
         >
-          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-4">/ Contact</p>
+          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white mb-4">/ Contact</p>
           <h1
             className="font-black tracking-[-0.04em] leading-[1.05] text-white mb-5"
             style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}

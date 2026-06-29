@@ -190,7 +190,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
               {p.num}
             </div>
             <span
-              className="absolute top-4 right-4 text-[10px] font-mono px-2.5 py-1 rounded-full text-white/70"
+              className="absolute top-4 right-4 text-[10px] font-mono px-2.5 py-1 rounded-full text-white"
               style={{ background: "rgba(255,255,255,0.9)", border: "1px solid rgba(0,0,0,0.08)" }}
             >
               {p.year}
@@ -213,7 +213,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
                 </span>
               ))}
             </div>
-            <p className="text-[11px] text-white/70 flex items-center gap-1.5 mt-auto font-medium">
+            <p className="text-[11px] text-white flex items-center gap-1.5 mt-auto font-medium">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                 <path d="M6 1v5l3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
               </svg>
@@ -256,7 +256,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
             </div>
           </div>
 
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-white/70 mb-3">Wat ik leerde</p>
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-white mb-3">Wat ik leerde</p>
           <ul className="space-y-2.5 mb-5">
             {p.learned.map((l) => (
               <li key={l} className="flex items-start gap-2.5 text-xs text-white/80 leading-relaxed">
@@ -278,7 +278,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
             ))}
           </div>
 
-          <p className="text-[11px] text-white/70 flex items-center gap-1.5 mt-4 font-medium">
+          <p className="text-[11px] text-white flex items-center gap-1.5 mt-4 font-medium">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M6 1v5l3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
             </svg>
@@ -335,7 +335,7 @@ export default function ProjectsPage() {
               style={{ background: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)" }}
             >
               <span className="text-xl font-black text-white">{v}</span>
-              <span className="text-xs text-white/70">{l}</span>
+              <span className="text-xs text-white">{l}</span>
             </div>
           ))}
         </motion.div>
@@ -410,7 +410,7 @@ export default function ProjectsPage() {
               <div className="p-6">
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <h3 className="text-base font-black text-white tracking-tight">kustweek.nl</h3>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-white/60 group-hover:text-[#0ea5e9] transition-colors mt-0.5 flex-shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-white group-hover:text-[#0ea5e9] transition-colors mt-0.5 flex-shrink-0">
                     <path d="M2 12L12 2M12 2H6M12 2v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
@@ -476,7 +476,7 @@ export default function ProjectsPage() {
               <div className="p-6">
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <h3 className="text-base font-black text-white tracking-tight">restaurantniven.nl</h3>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-white/60 group-hover:text-[#7c3aed] transition-colors mt-0.5 flex-shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-white group-hover:text-[#7c3aed] transition-colors mt-0.5 flex-shrink-0">
                     <path d="M2 12L12 2M12 2H6M12 2v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
@@ -504,7 +504,7 @@ export default function ProjectsPage() {
           className="mt-20"
         >
           <div className="mb-8">
-            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-3">/ Interne documentatie & training</p>
+            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white mb-3">/ Interne documentatie & training</p>
             <h2 className="text-2xl font-black tracking-tight text-white mb-2">
               Handleidingen gemaakt voor{" "}
               <span className="text-accent">nieuwe stagiairs</span>.
@@ -596,10 +596,10 @@ export default function ProjectsPage() {
                   </div>
                   <p className="text-xs text-white/80 leading-relaxed mb-2">{doc.desc}</p>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono text-white/60">{doc.meta}</span>
+                    <span className="text-[10px] font-mono text-white">{doc.meta}</span>
                     <svg
                       width="10" height="10" viewBox="0 0 10 10" fill="none"
-                      className="text-white/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150"
+                      className="text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-150"
                     >
                       <path d="M2 8L8 2M8 2H4M8 2v4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>

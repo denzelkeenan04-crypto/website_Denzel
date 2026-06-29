@@ -38,7 +38,7 @@ export default function AboutPage() {
 
         {/* Header */}
         <Reveal>
-          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-4">/ Over mij</p>
+          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white mb-4">/ Over mij</p>
           <h1 className="font-black tracking-[-0.04em] leading-[1.05] text-white mb-6"
               style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}>
             Hoi, ik ben{" "}
@@ -102,14 +102,14 @@ export default function AboutPage() {
                   { label: "Email",       val: "denzelkeenan04@gmail.com" },
                 ].map(({ label, val }) => (
                   <div key={label} className="flex justify-between gap-4">
-                    <span className="text-xs text-white/60 flex-shrink-0">{label}</span>
+                    <span className="text-xs text-white flex-shrink-0">{label}</span>
                     <span className="text-xs font-medium text-white text-right">{val}</span>
                   </div>
                 ))}
               </div>
 
               <div className="mt-6 pt-5 border-t" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
-                <p className="text-[10px] text-white/60 uppercase tracking-wide mb-3">Hobby's</p>
+                <p className="text-[10px] text-white uppercase tracking-wide mb-3">Hobby's</p>
                 <div className="flex flex-wrap gap-2">
                   {["Fitness & Krachttraining", "Padel", "Hyrox", "Reizen"].map((h) => (
                     <span
@@ -129,7 +129,7 @@ export default function AboutPage() {
         {/* Timeline */}
         <Reveal delay={0.1}>
           <div className="mt-20">
-            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-3">Tijdlijn</p>
+            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white mb-3">Tijdlijn</p>
             <h2 className="text-3xl font-black tracking-tight text-white mb-10">Mijn pad</h2>
             <div className="relative pl-8">
               <div
@@ -160,9 +160,9 @@ export default function AboutPage() {
                       <span className="text-xl">{icon}</span>
                       <div className="flex-1">
                         <p className="text-sm font-bold text-white">{title}</p>
-                        <p className="text-xs text-white/70">{sub}</p>
+                        <p className="text-xs text-white">{sub}</p>
                       </div>
-                      <span className="text-[10px] font-mono text-white/60 flex-shrink-0">{year}</span>
+                      <span className="text-[10px] font-mono text-white flex-shrink-0">{year}</span>
                     </div>
                   </motion.div>
                 ))}
@@ -174,7 +174,7 @@ export default function AboutPage() {
         {/* Skills grid */}
         <Reveal delay={0.1}>
           <div className="mt-20">
-            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-3">Toolkit</p>
+            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white mb-3">Toolkit</p>
             <h2 className="text-3xl font-black tracking-tight text-white mb-10">Wat ik meebring</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {SKILLS.map(({ cat, items }, ci) => (

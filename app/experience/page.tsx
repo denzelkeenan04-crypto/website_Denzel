@@ -205,8 +205,8 @@ export default function ExperiencePage() {
                           >
                             <span className="text-base leading-none mt-0.5">{d.icon}</span>
                             <div>
-                              <p className="text-xs font-semibold text-[#09090b]">{d.label}</p>
-                              <p className="text-[10px] text-[#09090b] leading-snug mt-0.5">{d.sub}</p>
+                              <p style={{ fontSize: "0.75rem", fontWeight: 600, color: "#000000 !important" }}>{d.label}</p>
+                              <p style={{ fontSize: "0.625rem", color: "#000000 !important", lineHeight: 1.4, marginTop: "0.125rem" }}>{d.sub}</p>
                             </div>
                           </div>
                         ))}

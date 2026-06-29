@@ -239,16 +239,16 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-                <span className="text-base font-bold" style={{ color: "#000000 !important" }}>Beschikbaar</span>
+                <span className="text-base font-bold" style={{ color: "#7c3aed !important" }}>Beschikbaar</span>
               </div>
-              <p className="text-lg font-black mb-4" style={{ color: "#000000 !important" }}>Wat ik zoek</p>
+              <p className="text-lg font-black mb-4" style={{ color: "#7c3aed !important" }}>Wat ik zoek</p>
               <ul className="space-y-2">
                 {[
                   "Freelance marketing opdrachten",
                   "Content en SEO projecten",
                   "Toekomstige stages (2027)",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-base" style={{ color: "#000000 !important" }}>
+                  <li key={item} className="flex items-center gap-2 text-base" style={{ color: "#7c3aed !important" }}>
                     <span className="w-1 h-1 rounded-full bg-[#7c3aed] flex-shrink-0" />
                     {item}
                   </li>

@@ -611,21 +611,20 @@ export default function ProjectsPage() {
         </motion.div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-          className="mt-16 rounded-3xl p-10 text-center"
+        <div
           style={{
-            background: "#ffffff",
+            marginTop: "4rem",
+            borderRadius: "1.5rem",
+            padding: "2.5rem",
+            textAlign: "center",
+            background: "rgb(255, 255, 255)",
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "#7c3aed !important", display: "block" }}>
+          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "rgb(124, 58, 237)", display: "block", margin: 0 }}>
             Wil je samenwerken?
           </h2>
-          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "#7c3aed !important", display: "block" }}>
+          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "rgb(124, 58, 237)", display: "block" }}>
             Ik leer snel en pak nieuwe vaardigheden graag op. Neem contact op.
           </p>
           <a
@@ -638,7 +637,7 @@ export default function ProjectsPage() {
               <path d="M2 5h6M5 2l3 3-3 3" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
-        </motion.div>
+        </div>
 
       </div>
     </main>

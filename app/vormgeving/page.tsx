@@ -727,21 +727,20 @@ export default function VormgevingPage() {
         ))}
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-          className="mt-12 rounded-3xl p-10 text-center"
+        <div
           style={{
-            background: "#ffffff",
+            marginTop: "3rem",
+            borderRadius: "1.5rem",
+            padding: "2.5rem",
+            textAlign: "center",
+            background: "rgb(255, 255, 255)",
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "#7c3aed !important", display: "block" }}>
+          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "rgb(124, 58, 237)", display: "block", margin: 0 }}>
             Meer van mijn werk zien?
           </h2>
-          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "#7c3aed !important", display: "block" }}>
+          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "rgb(124, 58, 237)", display: "block" }}>
             Bekijk ook mijn stage-projecten bij Brandmerck of neem direct contact op.
           </p>
           <div className="flex items-center justify-center gap-3 flex-wrap">
@@ -763,7 +762,7 @@ export default function VormgevingPage() {
               Contact opnemen
             </a>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </main>

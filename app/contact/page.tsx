@@ -231,25 +231,27 @@ export default function ContactPage() {
 
             {/* Availability */}
             <div
-              className="rounded-2xl p-6 mt-2"
               style={{
-                background: "linear-gradient(135deg, #faf5ff 0%, #f0f9ff 100%)",
+                borderRadius: "1rem",
+                padding: "1.5rem",
+                marginTop: "0.5rem",
+                background: "rgb(255, 255, 255)",
                 border: "1px solid rgba(124,58,237,0.12)",
               }}
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-                <span className="text-base font-bold" style={{ color: "#7c3aed !important" }}>Beschikbaar</span>
+                <span style={{ fontSize: "1rem", fontWeight: 700, color: "rgb(124, 58, 237)" }}>Beschikbaar</span>
               </div>
-              <p className="text-lg font-black mb-4" style={{ color: "#7c3aed !important" }}>Wat ik zoek</p>
-              <ul className="space-y-2">
+              <p style={{ fontSize: "1.125rem", fontWeight: 900, marginBottom: "1rem", color: "rgb(124, 58, 237)", margin: 0 }}>Wat ik zoek</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 {[
                   "Freelance marketing opdrachten",
                   "Content en SEO projecten",
                   "Toekomstige stages (2027)",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-base" style={{ color: "#7c3aed !important" }}>
-                    <span className="w-1 h-1 rounded-full bg-[#7c3aed] flex-shrink-0" />
+                  <li key={item} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "1rem", color: "rgb(124, 58, 237)" }}>
+                    <span style={{ width: "0.25rem", height: "0.25rem", borderRadius: "50%", background: "rgb(124, 58, 237)", flexShrink: 0 }} />
                     {item}
                   </li>
                 ))}

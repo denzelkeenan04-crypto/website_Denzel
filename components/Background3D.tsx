@@ -36,10 +36,12 @@ export default function Background3D() {
     // Elke lijn is een rij punten; de hoogte komt uit gestapelde
     // sinussen, zodat het geheel als één doek beweegt.
     // ═════════════════════════════════════════════════════════════
-    const LINE_COUNT = 60;
-    const POINTS = 200;
-    const WIDTH = 46;
-    const DEPTH = 24;
+    // Veel lijnen, dicht op elkaar: samen vormen ze één lint in plaats
+    // van een plat gaas. De kleine DEPTH is precies wat ze bundelt.
+    const LINE_COUNT = 90;
+    const POINTS = 240;
+    const WIDTH = 52;
+    const DEPTH = 7;
 
     const group = new THREE.Group();
     group.rotation.x = -0.25;
@@ -52,8 +54,8 @@ export default function Background3D() {
       z: number;
     }[] = [];
 
-    const colDeep = new THREE.Color(0x2563eb);
-    const colLight = new THREE.Color(0x7dd3fc);
+    const colDeep = new THREE.Color(0x3b82f6);
+    const colLight = new THREE.Color(0xbae6fd);
 
     for (let i = 0; i < LINE_COUNT; i++) {
       const t = i / (LINE_COUNT - 1);
@@ -100,10 +102,20 @@ export default function Background3D() {
         const { positions, geo, z } = L;
         for (let p = 0; p < POINTS; p++) {
           const x = positions[p * 3];
+
+          // De amplitude zwelt aan en af over de breedte — daardoor
+          // ontstaan de lussen en knopen uit de referentie.
+          const swell = 2.0 + Math.sin(x * 0.055 + time * 0.45) * 1.7;
+
+          // z * 1.15 geeft elke lijn een eigen fase, waardoor de band
+          // vlecht in plaats van als één vlak te bewegen.
           positions[p * 3 + 1] =
-            Math.sin(x * 0.16 + time * 1.0 + z * 0.18) * 1.8 +
-            Math.sin(x * 0.07 - time * 0.6 + z * 0.09) * 1.2 +
-            Math.cos(z * 0.3 + time * 0.5) * 0.7;
+            Math.sin(x * 0.17 + time * 0.9 + z * 1.15) * swell +
+            Math.sin(x * 0.085 - time * 0.55 + z * 0.5) * 1.3;
+
+          // Ook in de diepte laten golven, zodat het lint 3D omkrult
+          positions[p * 3 + 2] =
+            z + Math.sin(x * 0.11 + time * 0.4 + z * 0.8) * 1.6;
         }
         geo.attributes.position.needsUpdate = true;
       }

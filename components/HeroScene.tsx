@@ -111,16 +111,12 @@ function Scene() {
   return (
     <MouseGroup>
       <ambientLight intensity={0.5} />
-      <pointLight position={[5, 5, 3]} intensity={3} color="#7c3aed" />
-      <pointLight position={[-5, -2, 2]} intensity={2} color="#0ea5e9" />
-      <pointLight position={[0, -5, 1]} intensity={1} color="#f59e0b" />
+      <pointLight position={[5, 5, 3]} intensity={1.8} color="#7c3aed" />
+      <pointLight position={[-5, -2, 2]} intensity={1.2} color="#0ea5e9" />
 
       <MainBlob />
-      <AccentBlob position={[-3.8, 2.2, -3.5]} color="#0ea5e9" scale={0.55} speed={2.2} />
-      <AccentBlob position={[1.2, -2.8, -5]} color="#f59e0b" scale={0.38} speed={1.4} />
+      <AccentBlob position={[-3.8, 2.2, -3.5]} color="#0ea5e9" scale={0.45} speed={2.2} />
       <AccentBlob position={[-1.5, -1, -6]} color="#7c3aed" scale={0.3} speed={2.6} />
-      <WireframeTorus />
-      <WireframeIco />
     </MouseGroup>
   );
 }

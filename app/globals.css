@@ -15,8 +15,8 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 105% 70% at 60% 50%, #1d5296 0%, #113a72 38%, transparent 72%),
-    linear-gradient(180deg, #0b1e44 0%, #123056 50%, #0a1a3c 100%);
+    radial-gradient(ellipse 90% 55% at 52% 48%, rgba(37,99,235,0.30) 0%, rgba(23,63,133,0.16) 42%, transparent 72%),
+    linear-gradient(180deg, #060d22 0%, #0a1734 45%, #071026 100%);
   background-attachment: fixed;
   color: #ffffff;
   font-family: var(--font-sans);

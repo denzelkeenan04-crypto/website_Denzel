@@ -11,19 +11,18 @@ export default function Background3D() {
     const container = containerRef.current;
 
     // ═════════════════════════════════════════════════════════════
-    // SCENE
+    // SCENE — canvas blijft doorzichtig, het blauwe verloop komt
+    // uit globals.css zodat beide altijd op elkaar aansluiten.
     // ═════════════════════════════════════════════════════════════
-    // Geen scene.background: de canvas blijft doorzichtig, zodat de
-    // blauwe verloop-achtergrond uit globals.css eronder zichtbaar is.
     const scene = new THREE.Scene();
 
     const camera = new THREE.PerspectiveCamera(
       60,
       window.innerWidth / window.innerHeight,
       0.1,
-      200
+      300
     );
-    camera.position.set(0, 4.5, 14);
+    camera.position.set(0, 3.2, 15);
     camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -32,60 +31,96 @@ export default function Background3D() {
     container.appendChild(renderer.domElement);
 
     // ═════════════════════════════════════════════════════════════
-    // GOLVENDE LIJNEN
-    // Elke lijn is een rij punten; de hoogte komt uit gestapelde
-    // sinussen, zodat het geheel als één doek beweegt.
+    // STERRENVELD — de losse puntjes uit de referentie
     // ═════════════════════════════════════════════════════════════
-    // Veel lijnen, dicht op elkaar: samen vormen ze één lint in plaats
-    // van een plat gaas. De kleine DEPTH is precies wat ze bundelt.
-    const LINE_COUNT = 90;
-    const POINTS = 240;
-    const WIDTH = 52;
-    const DEPTH = 7;
+    const STAR_COUNT = 520;
+    const starPos = new Float32Array(STAR_COUNT * 3);
+    const starCol = new Float32Array(STAR_COUNT * 3);
+    const starPhase = new Float32Array(STAR_COUNT);
+
+    for (let i = 0; i < STAR_COUNT; i++) {
+      starPos[i * 3] = (Math.random() - 0.5) * 120;
+      starPos[i * 3 + 1] = (Math.random() - 0.5) * 60;
+      starPos[i * 3 + 2] = -10 - Math.random() * 60;
+
+      // Overwegend wit, een deel lichtblauw — geeft diepte
+      const blauw = Math.random() < 0.35;
+      const helder = 0.55 + Math.random() * 0.45;
+      starCol[i * 3] = (blauw ? 0.55 : 1) * helder;
+      starCol[i * 3 + 1] = (blauw ? 0.78 : 1) * helder;
+      starCol[i * 3 + 2] = helder;
+
+      starPhase[i] = Math.random() * Math.PI * 2;
+    }
+
+    const starGeo = new THREE.BufferGeometry();
+    starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+    starGeo.setAttribute('color', new THREE.BufferAttribute(starCol, 3));
+
+    const starMat = new THREE.PointsMaterial({
+      size: 0.28,
+      vertexColors: true,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.9,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+
+    const stars = new THREE.Points(starGeo, starMat);
+    scene.add(stars);
+
+    // ═════════════════════════════════════════════════════════════
+    // LINT — veel lijnen dicht op elkaar. Per punt een eigen kleur,
+    // zodat het lint aan de randen uitvaagt en op de toppen oplicht.
+    // Dat is wat het die zijdeachtige uitstraling geeft.
+    // ═════════════════════════════════════════════════════════════
+    const LINES = 90;
+    const POINTS = 220;
+    const WIDTH = 62;
+    const DEPTH = 6;
 
     const group = new THREE.Group();
-    group.rotation.x = -0.25;
+    group.rotation.x = -0.22;
+    group.rotation.z = 0.05;
     scene.add(group);
 
-    const lines: {
-      positions: Float32Array;
+    type Lint = {
+      pos: Float32Array;
+      col: Float32Array;
       geo: THREE.BufferGeometry;
       mat: THREE.LineBasicMaterial;
-      z: number;
-    }[] = [];
+      z0: number;
+      t: number;
+    };
+    const linten: Lint[] = [];
 
-    const colDeep = new THREE.Color(0x3b82f6);
-    const colLight = new THREE.Color(0xbae6fd);
+    for (let i = 0; i < LINES; i++) {
+      const t = i / (LINES - 1);
+      const z0 = -DEPTH / 2 + t * DEPTH;
 
-    for (let i = 0; i < LINE_COUNT; i++) {
-      const t = i / (LINE_COUNT - 1);
-      const z = -DEPTH / 2 + t * DEPTH;
-
-      const positions = new Float32Array(POINTS * 3);
+      const pos = new Float32Array(POINTS * 3);
+      const col = new Float32Array(POINTS * 3);
       for (let p = 0; p < POINTS; p++) {
-        positions[p * 3] = -WIDTH / 2 + (p / (POINTS - 1)) * WIDTH;
-        positions[p * 3 + 1] = 0;
-        positions[p * 3 + 2] = z;
+        pos[p * 3] = -WIDTH / 2 + (p / (POINTS - 1)) * WIDTH;
+        pos[p * 3 + 1] = 0;
+        pos[p * 3 + 2] = z0;
       }
 
       const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
 
-      // Dieper blauw achterin, lichtblauw naar voren
-      const color = colDeep.clone().lerp(colLight, t);
-
-      // Lijnen in het midden van het doek zijn het helderst
-      const midden = 1 - Math.abs(t - 0.5) * 2;
       const mat = new THREE.LineBasicMaterial({
-        color,
+        vertexColors: true,
         transparent: true,
-        opacity: 0.16 + 0.42 * midden,
+        opacity: 0.5,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
       });
 
       group.add(new THREE.Line(geo, mat));
-      lines.push({ positions, geo, mat, z });
+      linten.push({ pos, col, geo, mat, z0, t });
     }
 
     // ═════════════════════════════════════════════════════════════
@@ -96,29 +131,54 @@ export default function Background3D() {
 
     const animate = () => {
       raf = requestAnimationFrame(animate);
-      time += 0.004;
+      time += 0.0035;
 
-      for (const L of lines) {
-        const { positions, geo, z } = L;
+      for (const L of linten) {
+        const { pos, col, geo, z0, t } = L;
+
         for (let p = 0; p < POINTS; p++) {
-          const x = positions[p * 3];
+          const u = p / (POINTS - 1);
+          const x = pos[p * 3];
 
-          // De amplitude zwelt aan en af over de breedte — daardoor
-          // ontstaan de lussen en knopen uit de referentie.
-          const swell = 2.0 + Math.sin(x * 0.055 + time * 0.45) * 1.7;
+          // Gestapelde golven van grof naar fijn: de grove bepaalt de
+          // grote zwaai, de fijne geeft de rimpeling erbovenop.
+          const golf1 = Math.sin(x * 0.075 + time * 0.8 + z0 * 0.9) * 3.4;
+          const golf2 = Math.sin(x * 0.155 - time * 1.15 + z0 * 1.4) * 1.5;
+          const golf3 = Math.cos(x * 0.31 + time * 0.6 + z0 * 2.1) * 0.5;
 
-          // z * 1.15 geeft elke lijn een eigen fase, waardoor de band
-          // vlecht in plaats van als één vlak te bewegen.
-          positions[p * 3 + 1] =
-            Math.sin(x * 0.17 + time * 0.9 + z * 1.15) * swell +
-            Math.sin(x * 0.085 - time * 0.55 + z * 0.5) * 1.3;
+          // Het lint zwelt aan en af over de lengte
+          const zwelling = 0.55 + 0.45 * Math.sin(x * 0.042 - time * 0.5);
 
-          // Ook in de diepte laten golven, zodat het lint 3D omkrult
-          positions[p * 3 + 2] =
-            z + Math.sin(x * 0.11 + time * 0.4 + z * 0.8) * 1.6;
+          const y = (golf1 + golf2) * zwelling + golf3;
+          pos[p * 3 + 1] = y;
+          pos[p * 3 + 2] = z0 + Math.sin(x * 0.09 + time * 0.45 + z0) * 2.2;
+
+          // Zacht uitvagen naar links en rechts
+          const rand = Math.pow(Math.sin(u * Math.PI), 0.55);
+
+          // Toppen lichten op, dalen blijven donker
+          const top = 0.32 + 0.68 * ((golf1 / 3.4) * 0.5 + 0.5);
+
+          const k = rand * top;
+          col[p * 3] = 0.16 * k + 0.5 * k * t;
+          col[p * 3 + 1] = 0.52 * k + 0.42 * k * t;
+          col[p * 3 + 2] = 0.95 * k + 0.05 * k * t;
         }
+
         geo.attributes.position.needsUpdate = true;
+        geo.attributes.color.needsUpdate = true;
       }
+
+      // Sterren zacht laten pulseren
+      for (let i = 0; i < STAR_COUNT; i++) {
+        const tw = 0.72 + 0.28 * Math.sin(time * 2.2 + starPhase[i]);
+        const base = starCol[i * 3 + 2];
+        starCol[i * 3] = starCol[i * 3] * 0 + base * tw * (i % 3 === 0 ? 0.6 : 1);
+        starCol[i * 3 + 1] = base * tw * (i % 3 === 0 ? 0.82 : 1);
+        starCol[i * 3 + 2] = base * tw;
+      }
+      starGeo.attributes.color.needsUpdate = true;
+      stars.rotation.y += 0.00008;
 
       renderer.render(scene, camera);
     };
@@ -141,10 +201,12 @@ export default function Background3D() {
       if (renderer.domElement.parentNode === container) {
         container.removeChild(renderer.domElement);
       }
-      lines.forEach((l) => {
+      linten.forEach((l) => {
         l.geo.dispose();
         l.mat.dispose();
       });
+      starGeo.dispose();
+      starMat.dispose();
       renderer.dispose();
     };
   }, []);

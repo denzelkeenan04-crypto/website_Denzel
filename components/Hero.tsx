@@ -9,8 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
-
 /* ─── Animated video card ──────────────────────────────────────────────── */
 function VideoCard() {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,11 +34,11 @@ function VideoCard() {
         style={{ rotateX: rotX, rotateY: rotY, transformStyle: "preserve-3d" }}
         className="relative cursor-default animate-float"
       >
-        {/* Glow — verbindt de zonsondergang in de video met de paarse 3D blobs */}
+        {/* Glow — blauw, zodat de kaart in de golfachtergrond past */}
         <div
           className="absolute -inset-10 rounded-[3.5rem] opacity-50 blur-3xl pointer-events-none"
           style={{
-            background: "linear-gradient(135deg, rgba(124,58,237,0.55) 0%, rgba(251,146,60,0.45) 50%, rgba(14,165,233,0.25) 100%)",
+            background: "linear-gradient(135deg, rgba(56,189,248,0.5) 0%, rgba(37,99,235,0.45) 50%, rgba(125,211,252,0.3) 100%)",
             transform: "translateZ(-40px)",
           }}
         />
@@ -49,7 +47,7 @@ function VideoCard() {
         <div
           className="absolute -inset-[2px] rounded-[2.2rem] pointer-events-none"
           style={{
-            background: "linear-gradient(135deg, rgba(124,58,237,0.6), rgba(251,146,60,0.5), rgba(14,165,233,0.4))",
+            background: "linear-gradient(135deg, rgba(125,211,252,0.6), rgba(56,189,248,0.5), rgba(37,99,235,0.45))",
             transform: "translateZ(-2px)",
           }}
         />
@@ -206,10 +204,9 @@ export default function Hero() {
     <>
       <section ref={sectionRef} className="relative min-h-screen flex items-center pt-28 pb-16 px-6 overflow-hidden">
 
-        {/* 3D achtergrond scene */}
-        <div className="hero-bg absolute inset-0">
-          <HeroScene />
-        </div>
+        {/* De golvende achtergrond uit Background3D loopt hier doorheen —
+            de losse gekleurde blobs zijn eruit, die botsten daarmee. */}
+        <div className="hero-bg absolute inset-0 pointer-events-none" />
 
         {/* Subtiele achtergrond */}
         <div

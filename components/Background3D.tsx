@@ -117,59 +117,53 @@ export default function Background3D() {
     // zodat het lint aan de randen uitvaagt en op de toppen oplicht.
     // Dat is wat het die zijdeachtige uitstraling geeft.
     // ═════════════════════════════════════════════════════════════
-    const LINES = 70;
-    const POINTS = 190;
+    const LINES = 120;
+    const POINTS = 230;
     const WIDTH = 48;
-    const HALF = 3.1; // halve breedte van het lint
+    const DEPTH = 5;
 
     const group = new THREE.Group();
     group.rotation.x = -0.22;
     group.rotation.z = 0.05;
     scene.add(group);
 
-    type Lijn = {
+    type Lint = {
       pos: Float32Array;
       col: Float32Array;
       geo: THREE.BufferGeometry;
       mat: THREE.LineBasicMaterial;
-      v: number; // positie dwars over het lint, -1 t/m 1
-      lint: number;
+      z0: number;
+      t: number;
     };
-    const lijnen: Lijn[] = [];
+    const linten: Lint[] = [];
 
-    // Twee linten over elkaar, elk met eigen fase en tint — dat geeft
-    // de gelaagdheid en de kruisingen uit de referentie.
-    const LINTEN = [
-      { fase: 0, diepte: 0, snelheid: 1.0, r: 0.22, g: 0.62, b: 1.0, kracht: 1.45 },
-      { fase: 2.1, diepte: -6, snelheid: 0.72, r: 0.45, g: 0.82, b: 1.0, kracht: 0.9 },
-    ];
+    for (let i = 0; i < LINES; i++) {
+      const t = i / (LINES - 1);
+      const z0 = -DEPTH / 2 + t * DEPTH;
 
-    LINTEN.forEach((lint, li) => {
-      for (let i = 0; i < LINES; i++) {
-        const v = (i / (LINES - 1)) * 2 - 1;
-
-        const pos = new Float32Array(POINTS * 3);
-        const col = new Float32Array(POINTS * 3);
-        for (let p = 0; p < POINTS; p++) {
-          pos[p * 3] = -WIDTH / 2 + (p / (POINTS - 1)) * WIDTH;
-        }
-
-        const geo = new THREE.BufferGeometry();
-        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-
-        const mat = new THREE.LineBasicMaterial({
-          vertexColors: true,
-          transparent: true,
-          opacity: 0.92,
-          blending: THREE.AdditiveBlending,
-          depthWrite: false,
-        });
-
-        group.add(new THREE.Line(geo, mat));
-        lijnen.push({ pos, col, geo, mat, v, lint: li });
+      const pos = new Float32Array(POINTS * 3);
+      const col = new Float32Array(POINTS * 3);
+      for (let p = 0; p < POINTS; p++) {
+        pos[p * 3] = -WIDTH / 2 + (p / (POINTS - 1)) * WIDTH;
+        pos[p * 3 + 1] = 0;
+        pos[p * 3 + 2] = z0;
       }
-    });
+
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+
+      const mat = new THREE.LineBasicMaterial({
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.72,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      });
+
+      group.add(new THREE.Line(geo, mat));
+      linten.push({ pos, col, geo, mat, z0, t });
+    }
 
     // ═════════════════════════════════════════════════════════════
     // ANIMATIE
@@ -181,56 +175,35 @@ export default function Background3D() {
       raf = requestAnimationFrame(animate);
       time += 0.0035;
 
-      for (const L of lijnen) {
-        const { pos, col, geo, v, lint } = L;
-        const S = LINTEN[lint];
-        const tt = time * S.snelheid + S.fase;
+      for (const L of linten) {
+        const { pos, col, geo, z0, t } = L;
 
         for (let p = 0; p < POINTS; p++) {
           const u = p / (POINTS - 1);
           const x = pos[p * 3];
 
-          // ── Hartlijn: gestapelde golven, grof naar fijn. De frequenties
-          //    staan niet in gehele verhouding, waardoor het patroon zich
-          //    nooit netjes herhaalt en organisch blijft ogen.
-          const yc =
-            Math.sin(x * 0.113 + tt * 0.8) * 4.0 +
-            Math.sin(x * 0.197 - tt * 1.1) * 1.7 +
-            Math.sin(x * 0.331 + tt * 0.5) * 0.7;
+          // Gestapelde golven. De z0-term geeft elke lijn een eigen fase,
+          // waardoor de bundel vlecht in plaats van als één vlak te bewegen.
+          const golf1 = Math.sin(x * 0.24 + time * 0.8 + z0 * 0.85) * 4.2;
+          const golf2 = Math.sin(x * 0.45 - time * 1.15 + z0 * 1.5) * 1.5;
+          const golf3 = Math.cos(x * 0.88 + time * 0.6 + z0 * 2.2) * 0.45;
 
-          const zc =
-            S.diepte + Math.sin(x * 0.087 - tt * 0.55) * 3.0;
+          // Het lint zwelt aan en af over de lengte
+          const zwelling = 0.55 + 0.45 * Math.sin(x * 0.11 - time * 0.5);
 
-          // ── Draaiing om de eigen as. Hierdoor kantelt het lint: soms
-          //    kijk je er plat op (breed en zacht), soms op de rand
-          //    (smal en fel). Dat is de vouw uit de referentie.
-          const draai =
-            Math.sin(x * 0.075 + tt * 0.62) * 1.75 +
-            Math.sin(x * 0.028 - tt * 0.31) * 0.95;
+          pos[p * 3 + 1] = (golf1 + golf2) * zwelling + golf3;
+          pos[p * 3 + 2] = z0 + Math.sin(x * 0.19 + time * 0.45 + z0) * 2.4;
 
-          const cos = Math.cos(draai);
-          const sin = Math.sin(draai);
+          // Zacht uitvagen naar links en rechts
+          const rand = Math.pow(Math.sin(u * Math.PI), 0.55);
 
-          // Het lint wordt breder en smaller over de lengte
-          const breedte = HALF * (0.62 + 0.38 * Math.sin(x * 0.052 - tt * 0.4));
+          // Toppen lichten op, dalen blijven donker
+          const top = 0.28 + 0.72 * ((golf1 / 4.2) * 0.5 + 0.5);
 
-          pos[p * 3 + 1] = yc + v * breedte * cos;
-          pos[p * 3 + 2] = zc + v * breedte * sin;
-
-          // ── Kleur ──
-          // Zacht uitvagen aan de linker- en rechterrand
-          const rand = Math.pow(Math.sin(u * Math.PI), 0.5);
-
-          // Op de rand gezien bundelen de lijnen: daar oplichten
-          const opDeRand = 0.3 + 0.7 * (1 - Math.abs(cos));
-
-          // Buitenranden van het lint doven uit, de kern blijft helder
-          const kern = 1 - Math.abs(v) * 0.55;
-
-          const k = rand * opDeRand * kern * S.kracht;
-          col[p * 3] = S.r * k;
-          col[p * 3 + 1] = S.g * k;
-          col[p * 3 + 2] = S.b * k;
+          const k = rand * top * 1.5;
+          col[p * 3] = 0.16 * k + 0.5 * k * t;
+          col[p * 3 + 1] = 0.52 * k + 0.42 * k * t;
+          col[p * 3 + 2] = 0.95 * k + 0.05 * k * t;
         }
 
         geo.attributes.position.needsUpdate = true;
@@ -270,7 +243,7 @@ export default function Background3D() {
       if (renderer.domElement.parentNode === container) {
         container.removeChild(renderer.domElement);
       }
-      lijnen.forEach((l) => {
+      linten.forEach((l) => {
         l.geo.dispose();
         l.mat.dispose();
       });

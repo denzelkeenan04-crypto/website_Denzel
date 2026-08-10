@@ -53,8 +53,29 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
+  const MY_EMAIL = "denzelkeenan04@gmail.com";
+
+  function buildMailto() {
+    const subject = form.subject
+      ? `${form.subject} — via portfolio`
+      : "Bericht via portfolio";
+
+    const body = [
+      `Naam: ${form.name}`,
+      `E-mail: ${form.email}`,
+      form.subject ? `Onderwerp: ${form.subject}` : "",
+      "",
+      form.message,
+    ]
+      .filter((line, i) => line !== "" || i >= 3)
+      .join("\n");
+
+    return `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    window.location.href = buildMailto();
     setSent(true);
   }
 
@@ -103,7 +124,7 @@ export default function ContactPage() {
             {sent ? (
               <div
                 className="rounded-3xl p-12 text-center h-full flex flex-col items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #faf5ff, #f0f9ff)", border: "1px solid rgba(124,58,237,0.1)" }}
+                style={{ background: "rgb(255, 255, 255)", border: "1px solid rgba(124,58,237,0.15)" }}
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
@@ -113,10 +134,39 @@ export default function ContactPage() {
                     <path d="M5 13l4 4L19 7" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <h2 className="text-xl font-black text-white mb-2">Bericht verstuurd</h2>
-                <p className="text-sm text-white max-w-xs">
-                  Bedankt, {form.name}. Ik neem zo snel mogelijk contact met je op.
+                <h2 style={{ fontSize: "1.25rem", fontWeight: 900, marginBottom: "0.75rem", color: "rgb(124, 58, 237)" }}>
+                  Je mailprogramma is geopend
+                </h2>
+                <p style={{ fontSize: "0.875rem", maxWidth: "24rem", color: "rgb(0, 0, 0)", lineHeight: 1.6 }}>
+                  Bedankt{form.name ? `, ${form.name}` : ""}. Je bericht staat klaar —
+                  klik daar op <strong>versturen</strong> om het echt te verzenden.
                 </p>
+                <p style={{ fontSize: "0.75rem", marginTop: "1.25rem", color: "rgb(80, 80, 80)", lineHeight: 1.6 }}>
+                  Niets geopend? Mail me direct op{" "}
+                  <a
+                    href={`mailto:${MY_EMAIL}`}
+                    style={{ color: "rgb(124, 58, 237)", fontWeight: 600 }}
+                  >
+                    {MY_EMAIL}
+                  </a>
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSent(false)}
+                  style={{
+                    marginTop: "1.5rem",
+                    padding: "0.625rem 1.25rem",
+                    borderRadius: "1rem",
+                    fontSize: "0.8125rem",
+                    fontWeight: 600,
+                    color: "rgb(124, 58, 237)",
+                    background: "rgba(124,58,237,0.08)",
+                    border: "1px solid rgba(124,58,237,0.2)",
+                    cursor: "pointer",
+                  }}
+                >
+                  Nieuw bericht opstellen
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">

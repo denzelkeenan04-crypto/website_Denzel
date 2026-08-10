@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const SKILLS = [
   { cat: "Marketing & Content", items: ["Copywriting", "Social Media", "Content Strategie", "Community Management"] },
@@ -10,8 +11,8 @@ const SKILLS = [
 ];
 
 const TIMELINE = [
-  { year: "2026", title: "BPV Stagiair bij Brandmerck", sub: "Echte projecten, echte klanten, echte deadlines — Bolsward", icon: "🏢", active: true },
-  { year: "2025", title: "Winkelmedewerker Allied Sports", sub: "Naast de studie aan het werk — Sneek", icon: "🏅" },
+  { year: "2026", title: "BPV Stagiair bij Brandmerck", sub: "Echte projecten, echte klanten, echte deadlines — Bolsward", icon: "🏢", img: "/images/work/kustweek-logo.png", active: true },
+  { year: "2025", title: "Winkelmedewerker Allied Sports", sub: "Naast de studie aan het werk — Sneek", icon: "🏅", img: "/images/work/allied-shop.jpg" },
   { year: "2025", title: "Start MBO Marketing & Communicatie", sub: "Theorie achter de praktijk — Firda Sneek", icon: "🎓", active: true },
   { year: "2024", title: "Zelfstandig Online Marketeer", sub: "Een jaar lang op eigen kracht gebouwd — Remote", icon: "💻" },
   { year: "2023", title: "Productiemedewerker", sub: "Werken in een team van 10+ mensen — Moordrecht", icon: "🏭" },
@@ -137,7 +138,7 @@ export default function AboutPage() {
                 style={{ background: "linear-gradient(to bottom, #7c3aed, #0ea5e9, rgba(0,0,0,0.05))" }}
               />
               <div className="space-y-6">
-                {TIMELINE.map(({ year, title, sub, icon, active }, i) => (
+                {TIMELINE.map(({ year, title, sub, icon, img, active }, i) => (
                   <motion.div
                     key={title}
                     initial={{ opacity: 0, x: -16 }}
@@ -157,7 +158,21 @@ export default function AboutPage() {
                         border: `1px solid ${active ? "rgba(124,58,237,0.2)" : "rgba(255,255,255,0.1)"}`,
                       }}
                     >
-                      <span className="text-xl">{icon}</span>
+                      {img ? (
+                        <div
+                          className="relative rounded-xl overflow-hidden flex-shrink-0"
+                          style={{ width: 42, height: 42, border: "1px solid rgba(125,211,252,0.28)" }}
+                        >
+                          <Image src={img} alt={title} fill sizes="60px" className="object-cover" />
+                        </div>
+                      ) : (
+                        <span
+                          className="flex items-center justify-center rounded-xl flex-shrink-0 text-lg"
+                          style={{ width: 42, height: 42, background: "rgba(125,211,252,0.10)", border: "1px solid rgba(125,211,252,0.20)" }}
+                        >
+                          {icon}
+                        </span>
+                      )}
                       <div className="flex-1">
                         <p className="text-sm font-bold text-white">{title}</p>
                         <p className="text-xs text-white">{sub}</p>

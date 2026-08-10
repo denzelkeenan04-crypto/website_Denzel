@@ -1,6 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+/* Mini-foto bij een tijdlijnitem. Is er (nog) geen foto, dan tonen we
+   een tegel met de beginletter in de kleur van de werkplek — dat oogt
+   bewuster dan een leeg gekleurd vlak. */
+function Thumb({
+  img,
+  alt,
+  icon,
+  color,
+  size = 44,
+}: {
+  img?: string;
+  alt: string;
+  icon?: string;
+  color: string;
+  size?: number;
+}) {
+  return (
+    <div
+      className="rounded-2xl overflow-hidden flex-shrink-0 relative"
+      style={{
+        width: size,
+        height: size,
+        background: img
+          ? "#0b1730"
+          : `linear-gradient(140deg, ${color}38, rgba(9,20,45,0.9))`,
+        border: `1px solid ${color}66`,
+      }}
+    >
+      {img ? (
+        <Image src={img} alt={alt} fill sizes="60px" className="object-cover" />
+      ) : (
+        <span
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ fontSize: size * 0.46 }}
+        >
+          {icon}
+        </span>
+      )}
+    </div>
+  );
+}
 
 const EXPERIENCE = [
   {
@@ -8,6 +51,7 @@ const EXPERIENCE = [
     title:     "BPV Stagiair Marketing & Communicatie",
     company:   "Brandmerck",
     location:  "Bolsward, Friesland",
+    img:       "/images/work/kustweek-logo.png",
     color:     "#7c3aed",
     lightColor:"#ede9fe",
     current:   true,
@@ -32,6 +76,7 @@ const EXPERIENCE = [
     title:     "Zelfstandig Online Marketeer",
     company:   "Eigen onderneming",
     location:  "Remote",
+    icon:      "💻",
     color:     "#f59e0b",
     lightColor:"#fef3c7",
     current:   false,
@@ -48,6 +93,7 @@ const EXPERIENCE = [
     title:     "Medewerker",
     company:   "Allied Sports",
     location:  "Sneek, Friesland",
+    img:       "/images/work/allied-shop.jpg",
     color:     "#0ea5e9",
     lightColor:"#e0f2fe",
     current:   true,
@@ -65,6 +111,7 @@ const EXPERIENCE = [
     title:     "Productiemedewerker",
     company:   "BV CP Phenolics",
     location:  "Moordrecht",
+    icon:      "🏭",
     color:     "#f59e0b",
     lightColor:"#fef3c7",
     current:   false,
@@ -79,6 +126,7 @@ const EXPERIENCE = [
     title:     "Medewerker Bediening",
     company:   "Le Barage",
     location:  "Alblasserdam",
+    icon:      "☕",
     color:     "#22c55e",
     lightColor:"#dcfce7",
     current:   false,
@@ -123,7 +171,7 @@ export default function ExperiencePage() {
           />
 
           <div className="space-y-10 pl-16">
-            {EXPERIENCE.map(({ period, title, company, location, color, lightColor, current, points, deliverables }, i) => (
+            {EXPERIENCE.map(({ period, title, company, location, color, lightColor, current, points, deliverables, img, icon }, i) => (
               <motion.div
                 key={title}
                 initial={{ opacity: 0, x: -20 }}
@@ -150,10 +198,7 @@ export default function ExperiencePage() {
                   {/* Top */}
                   <div className="flex items-start justify-between gap-4 mb-6 flex-wrap">
                     <div className="flex items-center gap-3">
-                      <div
-                        className="w-10 h-10 rounded-2xl flex-shrink-0"
-                        style={{ background: lightColor }}
-                      />
+                      <Thumb img={img} alt={company} icon={icon} color={color} />
                       <div>
                         <p className="text-base font-bold text-white">{title}</p>
                         <p className="text-xs text-white">{company} · {location}</p>

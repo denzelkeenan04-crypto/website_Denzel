@@ -31,7 +31,7 @@ export default function Navbar() {
             background: "rgba(255,255,255,0.88)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
-            border: "1px solid rgba(0,0,0,0.07)",
+            border: "1px solid rgba(125, 211, 252, 0.14)",
             boxShadow: "0 4px 24px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
           }}
         >

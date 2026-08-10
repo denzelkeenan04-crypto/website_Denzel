@@ -165,8 +165,8 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
             inset: 0,
             borderRadius: "1.5rem",
             overflow: "hidden",
-            background: "#0a0a0a",
-            border: "1px solid rgba(0,0,0,0.07)",
+            background: "rgba(9, 20, 45, 0.72)",
+            border: "1px solid rgba(125, 211, 252, 0.14)",
             boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
           }}
         >
@@ -232,7 +232,7 @@ function SkillCard({ p, i }: { p: SkillProject; i: number }) {
             inset: 0,
             borderRadius: "1.5rem",
             padding: "1.75rem",
-            background: "#0a0a0a",
+            background: "rgba(9, 20, 45, 0.72)",
             border: `1px solid ${p.color}30`,
             boxShadow: `0 8px 40px ${p.color}18, 0 2px 12px rgba(0,0,0,0.06)`,
           }}
@@ -332,7 +332,7 @@ export default function ProjectsPage() {
             <div
               key={l}
               className="flex items-center gap-3 px-5 py-3 rounded-2xl"
-              style={{ background: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)" }}
+              style={{ background: "rgba(9, 20, 45, 0.72)", border: "1px solid rgba(255,255,255,0.1)" }}
             >
               <span className="text-xl font-black text-white">{v}</span>
               <span className="text-xs text-white">{l}</span>
@@ -378,8 +378,8 @@ export default function ProjectsPage() {
               transition={{ duration: 0.55, ease: "easeOut" }}
               className="group rounded-3xl overflow-hidden block"
               style={{
-                background: "#0a0a0a",
-                border: "1px solid rgba(0,0,0,0.07)",
+                background: "rgba(9, 20, 45, 0.72)",
+                border: "1px solid rgba(125, 211, 252, 0.14)",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                 textDecoration: "none",
               }}
@@ -438,8 +438,8 @@ export default function ProjectsPage() {
               transition={{ duration: 0.55, delay: 0.07, ease: "easeOut" }}
               className="group rounded-3xl overflow-hidden block"
               style={{
-                background: "#0a0a0a",
-                border: "1px solid rgba(0,0,0,0.07)",
+                background: "rgba(9, 20, 45, 0.72)",
+                border: "1px solid rgba(125, 211, 252, 0.14)",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                 textDecoration: "none",
               }}
@@ -568,8 +568,8 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
                 className="group flex items-start gap-4 rounded-3xl p-6 transition-all duration-200 hover:shadow-lg"
                 style={{
-                  background: "#0a0a0a",
-                  border: "1px solid rgba(0,0,0,0.07)",
+                  background: "rgba(9, 20, 45, 0.72)",
+                  border: "1px solid rgba(125, 211, 252, 0.14)",
                   boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                   textDecoration: "none",
                 }}
@@ -621,10 +621,10 @@ export default function ProjectsPage() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "rgb(124, 58, 237)", display: "block", margin: 0 }}>
+          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "#075985", display: "block", margin: 0 }}>
             Wil je samenwerken?
           </h2>
-          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "rgb(124, 58, 237)", display: "block" }}>
+          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "#075985", display: "block" }}>
             Ik leer snel en pak nieuwe vaardigheden graag op. Neem contact op.
           </p>
           <a

@@ -258,8 +258,8 @@ function StilteFotoCard({ a, i }: { a: Assignment; i: number }) {
       transition={{ duration: 0.6, delay: i * 0.07, ease: "easeOut" }}
       className="rounded-3xl overflow-hidden md:col-span-2"
       style={{
-        background: "#0a0a0a",
-        border: "1px solid rgba(0,0,0,0.07)",
+        background: "rgba(9, 20, 45, 0.72)",
+        border: "1px solid rgba(125, 211, 252, 0.14)",
         boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
       }}
     >
@@ -367,7 +367,7 @@ function StilteFotoCard({ a, i }: { a: Assignment; i: number }) {
           {a.feedback.length > 0 && (
             <div
               className="rounded-2xl p-4 mt-6 mb-2"
-              style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.06)" }}
+              style={{ background: "rgba(9, 20, 45, 0.72)", border: "1px solid rgba(125, 211, 252, 0.12)" }}
             >
               <p className="text-[10px] font-semibold uppercase tracking-wide text-white mb-2.5 flex items-center gap-1.5">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
@@ -417,8 +417,8 @@ function RegularCard({ a, i }: { a: Assignment; i: number }) {
         rel="noopener noreferrer"
         className="block rounded-3xl overflow-hidden group transition-transform duration-200 hover:-translate-y-1"
         style={{
-          background: "#0a0a0a",
-          border: "1px solid rgba(0,0,0,0.07)",
+          background: "rgba(9, 20, 45, 0.72)",
+          border: "1px solid rgba(125, 211, 252, 0.14)",
           boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
           textDecoration: "none",
         }}
@@ -472,7 +472,7 @@ function RegularCard({ a, i }: { a: Assignment; i: number }) {
           {a.feedback.length > 0 && (
             <div
               className="rounded-2xl p-4 mb-5"
-              style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.06)" }}
+              style={{ background: "rgba(9, 20, 45, 0.72)", border: "1px solid rgba(125, 211, 252, 0.12)" }}
             >
               <p className="text-[10px] font-semibold uppercase tracking-wide text-white mb-2.5 flex items-center gap-1.5">
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
@@ -517,7 +517,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="rounded-3xl overflow-hidden"
       style={{
-        background: "#0a0a0a",
+        background: "rgba(9, 20, 45, 0.72)",
         border: `1px solid ${a.color}30`,
         boxShadow: `0 8px 48px ${a.color}15, 0 4px 16px rgba(0,0,0,0.06)`,
       }}
@@ -556,7 +556,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
 
         {/* Banners image */}
         {a.img && (
-          <div className="rounded-2xl overflow-hidden mb-6" style={{ border: "1px solid rgba(0,0,0,0.07)" }}>
+          <div className="rounded-2xl overflow-hidden mb-6" style={{ border: "1px solid rgba(125, 211, 252, 0.14)" }}>
             <Image
               src={a.img}
               alt={a.imgAlt || a.title}
@@ -583,7 +583,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
             </p>
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(0,0,0,0.07)", background: "#000" }}
+              style={{ border: "1px solid rgba(125, 211, 252, 0.14)", background: "#000" }}
             >
               <video
                 controls
@@ -611,7 +611,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
             </p>
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(0,0,0,0.07)", background: "#000" }}
+              style={{ border: "1px solid rgba(125, 211, 252, 0.14)", background: "#000" }}
             >
               <video
                 controls
@@ -638,7 +638,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
             </p>
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(0,0,0,0.07)", background: "#000" }}
+              style={{ border: "1px solid rgba(125, 211, 252, 0.14)", background: "#000" }}
             >
               <video
                 controls
@@ -665,7 +665,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
             </p>
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(0,0,0,0.07)", background: "#000" }}
+              style={{ border: "1px solid rgba(125, 211, 252, 0.14)", background: "#000" }}
             >
               <video
                 controls
@@ -692,7 +692,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
             </p>
             <div
               className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(0,0,0,0.07)", background: "#000" }}
+              style={{ border: "1px solid rgba(125, 211, 252, 0.14)", background: "#000" }}
             >
               <video
                 controls
@@ -712,7 +712,7 @@ function FeaturedCard({ a }: { a: Assignment }) {
         {a.feedback.length > 0 && (
           <div
             className="rounded-2xl p-4 mb-5"
-            style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.06)" }}
+            style={{ background: "rgba(9, 20, 45, 0.72)", border: "1px solid rgba(125, 211, 252, 0.12)" }}
           >
             <p className="text-[10px] font-semibold uppercase tracking-wide text-white mb-2.5 flex items-center gap-1.5">
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
@@ -789,7 +789,7 @@ export default function VormgevingPage() {
             <div
               key={l}
               className="flex items-center gap-3 px-5 py-3 rounded-2xl"
-              style={{ background: "#0a0a0a", border: "1px solid rgba(0,0,0,0.06)" }}
+              style={{ background: "rgba(9, 20, 45, 0.72)", border: "1px solid rgba(125, 211, 252, 0.12)" }}
             >
               <span className="text-xl font-black text-white">{v}</span>
               <span className="text-xs text-white">{l}</span>
@@ -824,10 +824,10 @@ export default function VormgevingPage() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "rgb(124, 58, 237)", display: "block", margin: 0 }}>
+          <h2 style={{ fontSize: "2rem", fontWeight: 900, letterSpacing: "-0.02em", marginBottom: "1.5rem", color: "#075985", display: "block", margin: 0 }}>
             Meer van mijn werk zien?
           </h2>
-          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "rgb(124, 58, 237)", display: "block" }}>
+          <p style={{ fontSize: "1.125rem", marginBottom: "2.5rem", maxWidth: "28rem", margin: "0 auto 2.5rem", color: "#075985", display: "block" }}>
             Bekijk ook mijn stage-projecten bij Brandmerck of neem direct contact op.
           </p>
           <div className="flex items-center justify-center gap-3 flex-wrap">

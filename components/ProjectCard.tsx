@@ -45,7 +45,7 @@ export default function ProjectCard({ p, i }: { p: Project; i: number }) {
         className="rounded-3xl p-8 h-full transition-all duration-300"
         style={{
           background: "#ffffff",
-          border: "1px solid rgba(0,0,0,0.07)",
+          border: "1px solid rgba(125, 211, 252, 0.14)",
           boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
         }}
         onMouseEnter={(e) => {

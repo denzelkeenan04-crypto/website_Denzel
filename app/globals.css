@@ -14,40 +14,32 @@ html {
 }
 
 body {
-  background: #0a0a0a;
+  background:
+    radial-gradient(ellipse 110% 75% at 58% 45%, #14396d 0%, transparent 62%),
+    linear-gradient(180deg, #050c1f 0%, #08183a 48%, #050c1f 100%);
+  background-attachment: fixed;
   color: #ffffff;
   font-family: var(--font-sans);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  color: #ffffff;
-}
+/* LET OP — hier stond eerder een harde kleur op h1-h6, p, li, label en a.
+   Dat brak de overerving: tekst in een licht vak bleef wit, omdat een regel
+   op het element zelf altijd wint van de kleur die de ouder doorgeeft.
+   Kleur komt nu van body (donkere achtergrond) of van het lichte vak zelf. */
 
-/* Body text */
-p, li, label {
-  color: rgba(255,255,255,0.9);
-}
-
-/* Links */
 a {
-  color: #ffffff;
-}
-
-/* Keep links readable */
-a {
-  color: #ffffff;
+  color: inherit;
   text-decoration: underline;
 }
 a:hover {
   opacity: 0.8;
 }
 
-/* Accent gradient text */
+/* Accent gradient text — lichtblauw, leest goed op de donkerblauwe achtergrond */
 .text-accent {
-  background: linear-gradient(135deg, #7c3aed 0%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #38bdf8 0%, #7dd3fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

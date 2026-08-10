@@ -142,8 +142,8 @@ export default function ExperiencePage() {
                 <div
                   className="rounded-3xl p-8"
                   style={{
-                    background: "#0a0a0a",
-                    border: "1px solid rgba(0,0,0,0.07)",
+                    background: "rgba(9, 20, 45, 0.72)",
+                    border: "1px solid rgba(125, 211, 252, 0.14)",
                     boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                   }}
                 >
@@ -237,8 +237,8 @@ export default function ExperiencePage() {
               F
             </div>
             <div>
-              <p style={{ fontSize: "1rem", fontWeight: 700, color: "#7c3aed" }}>MBO Marketing & Communicatie</p>
-              <p style={{ fontSize: "0.875rem", color: "#7c3aed" }}>Firda · Sneek · Aug 2025 – Jun 2027</p>
+              <p style={{ fontSize: "1rem", fontWeight: 700, color: "#075985" }}>MBO Marketing & Communicatie</p>
+              <p style={{ fontSize: "0.875rem", color: "#075985" }}>Firda · Sneek · Aug 2025 – Jun 2027</p>
             </div>
             <span
               className="ml-auto text-[10px] px-2.5 py-1 rounded-full font-medium text-[#09090b] flex-shrink-0"

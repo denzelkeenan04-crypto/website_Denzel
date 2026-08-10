@@ -80,7 +80,7 @@ export default function ContactPage() {
   }
 
   const inputBase = "w-full px-4 py-3.5 rounded-2xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-[#7c3aed]/20 text-white placeholder-white/60";
-  const inputStyle = { background: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)" };
+  const inputStyle = { background: "rgba(9, 20, 45, 0.72)", border: "1px solid rgba(255,255,255,0.1)" };
 
   return (
     <main className="pt-32 pb-24 px-6">
@@ -134,7 +134,7 @@ export default function ContactPage() {
                     <path d="M5 13l4 4L19 7" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <h2 style={{ fontSize: "1.25rem", fontWeight: 900, marginBottom: "0.75rem", color: "rgb(124, 58, 237)" }}>
+                <h2 style={{ fontSize: "1.25rem", fontWeight: 900, marginBottom: "0.75rem", color: "#075985" }}>
                   Je mailprogramma is geopend
                 </h2>
                 <p style={{ fontSize: "0.875rem", maxWidth: "24rem", color: "rgb(0, 0, 0)", lineHeight: 1.6 }}>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                   Niets geopend? Mail me direct op{" "}
                   <a
                     href={`mailto:${MY_EMAIL}`}
-                    style={{ color: "rgb(124, 58, 237)", fontWeight: 600 }}
+                    style={{ color: "#075985", fontWeight: 600 }}
                   >
                     {MY_EMAIL}
                   </a>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                     borderRadius: "1rem",
                     fontSize: "0.8125rem",
                     fontWeight: 600,
-                    color: "rgb(124, 58, 237)",
+                    color: "#075985",
                     background: "rgba(124,58,237,0.08)",
                     border: "1px solid rgba(124,58,237,0.2)",
                     cursor: "pointer",
@@ -255,7 +255,7 @@ export default function ContactPage() {
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
                 className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  background: "#0a0a0a",
+                  background: "rgba(9, 20, 45, 0.72)",
                   border: "1px solid rgba(255,255,255,0.1)",
                   boxShadow: "0 2px 8px rgba(124,58,237,0.05)",
                   color: "rgba(255,255,255,0.7)",
@@ -291,16 +291,16 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-                <span style={{ fontSize: "1rem", fontWeight: 700, color: "rgb(124, 58, 237)" }}>Beschikbaar</span>
+                <span style={{ fontSize: "1rem", fontWeight: 700, color: "#075985" }}>Beschikbaar</span>
               </div>
-              <p style={{ fontSize: "1.125rem", fontWeight: 900, marginBottom: "1rem", color: "rgb(124, 58, 237)", margin: 0 }}>Wat ik zoek</p>
+              <p style={{ fontSize: "1.125rem", fontWeight: 900, marginBottom: "1rem", color: "#075985", margin: 0 }}>Wat ik zoek</p>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 {[
                   "Freelance marketing opdrachten",
                   "Content en SEO projecten",
                   "Toekomstige stages (2027)",
                 ].map((item) => (
-                  <li key={item} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "1rem", color: "rgb(124, 58, 237)" }}>
+                  <li key={item} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "1rem", color: "#075985" }}>
                     <span style={{ width: "0.25rem", height: "0.25rem", borderRadius: "50%", background: "rgb(124, 58, 237)", flexShrink: 0 }} />
                     {item}
                   </li>
@@ -311,7 +311,7 @@ export default function ContactPage() {
             {/* Location */}
             <div
               className="rounded-2xl px-5 py-4 flex items-center gap-3"
-              style={{ background: "#0a0a0a", border: "1px solid rgba(255,255,255,0.1)" }}
+              style={{ background: "rgba(9, 20, 45, 0.72)", border: "1px solid rgba(255,255,255,0.1)" }}
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="#a1a1aa"/>

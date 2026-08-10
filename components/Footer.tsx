@@ -47,7 +47,7 @@ export default function Footer() {
   return (
     <footer
       className="border-t mt-0"
-      style={{ borderColor: "rgba(255,255,255,0.1)", background: "#0a0a0a" }}
+      style={{ borderColor: "rgba(255,255,255,0.1)", background: "rgba(9, 20, 45, 0.72)" }}
     >
       {/* Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-14">

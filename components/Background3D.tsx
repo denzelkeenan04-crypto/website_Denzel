@@ -13,8 +13,9 @@ export default function Background3D() {
     // ═════════════════════════════════════════════════════════════
     // SCENE
     // ═════════════════════════════════════════════════════════════
+    // Geen scene.background: de canvas blijft doorzichtig, zodat de
+    // blauwe verloop-achtergrond uit globals.css eronder zichtbaar is.
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0a0a);
 
     const camera = new THREE.PerspectiveCamera(
       60,
@@ -51,8 +52,8 @@ export default function Background3D() {
       z: number;
     }[] = [];
 
-    const colBlue = new THREE.Color(0x0ea5e9);
-    const colPurple = new THREE.Color(0x7c3aed);
+    const colDeep = new THREE.Color(0x2563eb);
+    const colLight = new THREE.Color(0x7dd3fc);
 
     for (let i = 0; i < LINE_COUNT; i++) {
       const t = i / (LINE_COUNT - 1);
@@ -68,15 +69,15 @@ export default function Background3D() {
       const geo = new THREE.BufferGeometry();
       geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-      // Blauw op de achtergrond, paars naar voren — jouw huisstijl
-      const color = colBlue.clone().lerp(colPurple, t);
+      // Dieper blauw achterin, lichtblauw naar voren
+      const color = colDeep.clone().lerp(colLight, t);
 
       // Lijnen in het midden van het doek zijn het helderst
       const midden = 1 - Math.abs(t - 0.5) * 2;
       const mat = new THREE.LineBasicMaterial({
         color,
         transparent: true,
-        opacity: 0.08 + 0.2 * midden,
+        opacity: 0.16 + 0.42 * midden,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
       });

@@ -5,85 +5,106 @@ import * as THREE from 'three';
 
 export default function Background3D() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const particlesRef = useRef<THREE.Points | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
+    const container = containerRef.current;
 
     // ═════════════════════════════════════════════════════════════
-    // SCENE SETUP
+    // SCENE
     // ═════════════════════════════════════════════════════════════
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x0a0a0a);
-    sceneRef.current = scene;
 
-    // Camera
     const camera = new THREE.PerspectiveCamera(
-      75,
+      60,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      200
     );
-    camera.position.z = 5;
-    cameraRef.current = camera;
+    camera.position.set(0, 4.5, 14);
+    camera.lookAt(0, 0, 0);
 
-    // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    containerRef.current.appendChild(renderer.domElement);
-    rendererRef.current = renderer;
+    container.appendChild(renderer.domElement);
 
     // ═════════════════════════════════════════════════════════════
-    // PARTICLES FIELD — subtiel, mag de tekst nooit overstemmen
+    // GOLVENDE LIJNEN
+    // Elke lijn is een rij punten; de hoogte komt uit gestapelde
+    // sinussen, zodat het geheel als één doek beweegt.
     // ═════════════════════════════════════════════════════════════
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 140;
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
+    const LINE_COUNT = 60;
+    const POINTS = 200;
+    const WIDTH = 46;
+    const DEPTH = 24;
 
-    for (let i = 0; i < particleCount * 3; i += 3) {
-      positions[i] = (Math.random() - 0.5) * 100;
-      positions[i + 1] = (Math.random() - 0.5) * 100;
-      positions[i + 2] = (Math.random() - 0.5) * 100;
+    const group = new THREE.Group();
+    group.rotation.x = -0.25;
+    scene.add(group);
 
-      // Gedempt paars/blauw — geen felle accenten die met de content concurreren
-      if (Math.random() < 0.5) {
-        colors[i] = 0.42; colors[i + 1] = 0.36; colors[i + 2] = 0.60;
-      } else {
-        colors[i] = 0.34; colors[i + 1] = 0.44; colors[i + 2] = 0.58;
+    const lines: {
+      positions: Float32Array;
+      geo: THREE.BufferGeometry;
+      mat: THREE.LineBasicMaterial;
+      z: number;
+    }[] = [];
+
+    const colBlue = new THREE.Color(0x0ea5e9);
+    const colPurple = new THREE.Color(0x7c3aed);
+
+    for (let i = 0; i < LINE_COUNT; i++) {
+      const t = i / (LINE_COUNT - 1);
+      const z = -DEPTH / 2 + t * DEPTH;
+
+      const positions = new Float32Array(POINTS * 3);
+      for (let p = 0; p < POINTS; p++) {
+        positions[p * 3] = -WIDTH / 2 + (p / (POINTS - 1)) * WIDTH;
+        positions[p * 3 + 1] = 0;
+        positions[p * 3 + 2] = z;
       }
+
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+      // Blauw op de achtergrond, paars naar voren — jouw huisstijl
+      const color = colBlue.clone().lerp(colPurple, t);
+
+      // Lijnen in het midden van het doek zijn het helderst
+      const midden = 1 - Math.abs(t - 0.5) * 2;
+      const mat = new THREE.LineBasicMaterial({
+        color,
+        transparent: true,
+        opacity: 0.08 + 0.2 * midden,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      });
+
+      group.add(new THREE.Line(geo, mat));
+      lines.push({ positions, geo, mat, z });
     }
 
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.22,
-      vertexColors: true,
-      sizeAttenuation: true,
-      transparent: true,
-      opacity: 0.35,
-    });
-
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
-    particlesRef.current = particles;
-
     // ═════════════════════════════════════════════════════════════
-    // ANIMATION LOOP — alleen een trage drift, camera staat stil
+    // ANIMATIE
     // ═════════════════════════════════════════════════════════════
-    let animationId: number;
+    let raf: number;
+    let time = 0;
 
     const animate = () => {
-      animationId = requestAnimationFrame(animate);
+      raf = requestAnimationFrame(animate);
+      time += 0.004;
 
-      if (particles) {
-        particles.rotation.x += 0.00004;
-        particles.rotation.y += 0.00006;
+      for (const L of lines) {
+        const { positions, geo, z } = L;
+        for (let p = 0; p < POINTS; p++) {
+          const x = positions[p * 3];
+          positions[p * 3 + 1] =
+            Math.sin(x * 0.16 + time * 1.0 + z * 0.18) * 1.8 +
+            Math.sin(x * 0.07 - time * 0.6 + z * 0.09) * 1.2 +
+            Math.cos(z * 0.3 + time * 0.5) * 0.7;
+        }
+        geo.attributes.position.needsUpdate = true;
       }
 
       renderer.render(scene, camera);
@@ -92,25 +113,25 @@ export default function Background3D() {
     animate();
 
     // ═════════════════════════════════════════════════════════════
-    // WINDOW RESIZE
+    // RESIZE + CLEANUP
     // ═════════════════════════════════════════════════════════════
-    const onWindowResize = () => {
+    const onResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
+    window.addEventListener('resize', onResize);
 
-    window.addEventListener('resize', onWindowResize);
-
-    // ═════════════════════════════════════════════════════════════
-    // CLEANUP
-    // ═════════════════════════════════════════════════════════════
     return () => {
-      window.removeEventListener('resize', onWindowResize);
-      cancelAnimationFrame(animationId);
-      if (containerRef.current && renderer.domElement.parentNode === containerRef.current) {
-        containerRef.current.removeChild(renderer.domElement);
+      window.removeEventListener('resize', onResize);
+      cancelAnimationFrame(raf);
+      if (renderer.domElement.parentNode === container) {
+        container.removeChild(renderer.domElement);
       }
+      lines.forEach((l) => {
+        l.geo.dispose();
+        l.mat.dispose();
+      });
       renderer.dispose();
     };
   }, []);

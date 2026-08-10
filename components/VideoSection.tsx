@@ -2,10 +2,6 @@
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const PHONE_W = 240;
 const PHONE_H = 520;
@@ -172,47 +168,6 @@ export default function VideoSection() {
     const t = setTimeout(() => setRevealed(true), 900);
     return () => clearTimeout(t);
   }, [inView]);
-
-  // GSAP Scroll animations
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const section = sectionRef.current;
-    const textEl = section.querySelector('.video-section-text');
-    const phoneEl = section.querySelector('.video-section-phone');
-
-    if (textEl) {
-      gsap.from(textEl, {
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 60%',
-          end: 'top 20%',
-          scrub: 1.5,
-        },
-        opacity: 0,
-        x: -100,
-        ease: 'power2.out',
-      });
-    }
-
-    if (phoneEl) {
-      gsap.from(phoneEl, {
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 70%',
-          end: 'top 20%',
-          scrub: 1.5,
-        },
-        opacity: 0,
-        x: 100,
-        ease: 'power2.out',
-      });
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
 
   function move(e: React.MouseEvent) {
     if (!revealed) return;

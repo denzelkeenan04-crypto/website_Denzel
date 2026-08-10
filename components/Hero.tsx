@@ -36,7 +36,7 @@ function VideoCard() {
       >
         {/* Glow — blauw, zodat de kaart in de golfachtergrond past */}
         <div
-          className="absolute -inset-10 rounded-[3.5rem] opacity-50 blur-3xl pointer-events-none"
+          className="absolute -inset-6 sm:-inset-10 rounded-[3.5rem] opacity-50 blur-3xl pointer-events-none"
           style={{
             background: "linear-gradient(135deg, rgba(56,189,248,0.5) 0%, rgba(37,99,235,0.45) 50%, rgba(125,211,252,0.3) 100%)",
             transform: "translateZ(-40px)",
@@ -56,8 +56,10 @@ function VideoCard() {
         <div
           className="relative overflow-hidden"
           style={{
-            width: 480,
-            height: 270,
+            // Meeschalend: 480px op groot scherm, maar nooit breder dan
+            // het telefoonscherm min de marge — anders liep hij eruit.
+            width: "min(480px, 84vw)",
+            aspectRatio: "16 / 9",
             borderRadius: "2rem",
             boxShadow: "0 40px 100px rgba(124,58,237,0.2), 0 20px 40px rgba(251,146,60,0.15), 0 4px 12px rgba(0,0,0,0.12)",
           }}
@@ -240,7 +242,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.22, duration: 0.75, ease: "easeOut" }}
               className="font-black leading-[1.03] tracking-[-0.04em] text-white mb-7"
-              style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
+              style={{ fontSize: "clamp(2.5rem, 9vw, 5.5rem)" }}
             >
               <span className="text-accent">Digitale</span>
               <br />

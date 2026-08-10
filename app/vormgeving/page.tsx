@@ -14,6 +14,9 @@ type Assignment = {
   imgAlt?: string;
   video?: string;
   video2?: string;
+  video3?: string;
+  video4?: string;
+  video5?: string;
   extraImg?: string;
   story: string;
   feedback: string[];
@@ -70,6 +73,9 @@ const ASSIGNMENTS: Assignment[] = [
     done: true,
     video: "/video/social-media-campagne.mp4",
     video2: "/video/social-media-campagne-2.mp4",
+    video3: "/video/social-media-campagne-3.mp4",
+    video4: "/video/social-media-campagne-4.mp4",
+    video5: "/video/social-media-campagne-5.mp4",
     story:
       "Dit was de zwaarste opdracht: een volledige sociale media campagne bedenken voor Allied Sports, de padel- en squashwinkel in Sneek. Ik werkte een concept uit dat past bij de energieke sfeer van de sport, met een korte promovideo die als reel of story ingezet kan worden. De campagne richt zich op de lokale doelgroep en laat zien wat Allied Sports te bieden heeft — van clinics en toernooien tot racketadvies.",
     feedback: [
@@ -616,6 +622,87 @@ function FeaturedCard({ a }: { a: Assignment }) {
                 style={{ maxHeight: 480, objectFit: "contain" }}
               >
                 <source src={a.video2} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        )}
+
+        {/* Derde video */}
+        {a.video3 && (
+          <div className="mb-6">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-white mb-2 flex items-center gap-1.5">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 2l6 3-6 3V2z" fill="currentColor"/>
+              </svg>
+              Video 3
+            </p>
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(0,0,0,0.07)", background: "#000" }}
+            >
+              <video
+                controls
+                muted
+                loop
+                playsInline
+                className="w-full"
+                style={{ maxHeight: 480, objectFit: "contain" }}
+              >
+                <source src={a.video3} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        )}
+
+        {/* Vierde video */}
+        {a.video4 && (
+          <div className="mb-6">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-white mb-2 flex items-center gap-1.5">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 2l6 3-6 3V2z" fill="currentColor"/>
+              </svg>
+              Video 4
+            </p>
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(0,0,0,0.07)", background: "#000" }}
+            >
+              <video
+                controls
+                muted
+                loop
+                playsInline
+                className="w-full"
+                style={{ maxHeight: 480, objectFit: "contain" }}
+              >
+                <source src={a.video4} type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        )}
+
+        {/* Vijfde video */}
+        {a.video5 && (
+          <div className="mb-6">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-white mb-2 flex items-center gap-1.5">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 2l6 3-6 3V2z" fill="currentColor"/>
+              </svg>
+              Video 5
+            </p>
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(0,0,0,0.07)", background: "#000" }}
+            >
+              <video
+                controls
+                muted
+                loop
+                playsInline
+                className="w-full"
+                style={{ maxHeight: 480, objectFit: "contain" }}
+              >
+                <source src={a.video5} type="video/mp4" />
               </video>
             </div>
           </div>

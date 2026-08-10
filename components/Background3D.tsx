@@ -33,49 +33,84 @@ export default function Background3D() {
     // ═════════════════════════════════════════════════════════════
     // STERRENVELD — de losse puntjes uit de referentie
     // ═════════════════════════════════════════════════════════════
-    const STAR_COUNT = 700;
-    const starPos = new Float32Array(STAR_COUNT * 3);
-    const starCol = new Float32Array(STAR_COUNT * 3);
-    // Onveranderlijke basiskleur. Zonder deze kopie zou het knipperen
-    // de kleur elke frame opnieuw verkleinen en doven de sterren uit.
-    const starBase = new Float32Array(STAR_COUNT * 3);
-    const starPhase = new Float32Array(STAR_COUNT);
+    // Zachte ronde stip. Zonder deze textuur tekent Three.js vierkante
+    // blokjes — dat zag je als hoekige puntjes in plaats van sterren.
+    const stipTextuur = (() => {
+      const c = document.createElement('canvas');
+      c.width = c.height = 64;
+      const ctx = c.getContext('2d')!;
+      const g = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+      g.addColorStop(0, 'rgba(255,255,255,1)');
+      g.addColorStop(0.18, 'rgba(255,255,255,0.95)');
+      g.addColorStop(0.42, 'rgba(255,255,255,0.32)');
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, 64, 64);
+      return new THREE.CanvasTexture(c);
+    })();
 
-    for (let i = 0; i < STAR_COUNT; i++) {
-      starPos[i * 3] = (Math.random() - 0.5) * 90;
-      starPos[i * 3 + 1] = (Math.random() - 0.5) * 46;
-      starPos[i * 3 + 2] = -4 - Math.random() * 34;
+    type Sterlaag = {
+      geo: THREE.BufferGeometry;
+      mat: THREE.PointsMaterial;
+      col: Float32Array;
+      basis: Float32Array;
+      fase: Float32Array;
+      punten: THREE.Points;
+      n: number;
+    };
+    const sterlagen: Sterlaag[] = [];
 
-      // Overwegend wit, een deel lichtblauw — geeft diepte
-      const blauw = Math.random() < 0.35;
-      const helder = 0.6 + Math.random() * 0.4;
-      starBase[i * 3] = (blauw ? 0.6 : 1) * helder;
-      starBase[i * 3 + 1] = (blauw ? 0.82 : 1) * helder;
-      starBase[i * 3 + 2] = helder;
+    function maakSterlaag(n: number, grootte: number, helderheid: number) {
+      const pos = new Float32Array(n * 3);
+      const col = new Float32Array(n * 3);
+      // Onveranderlijke basiskleur: zonder deze kopie zou het knipperen
+      // de kleur elke frame opnieuw verkleinen en doven de sterren uit.
+      const basis = new Float32Array(n * 3);
+      const fase = new Float32Array(n);
 
-      starCol[i * 3] = starBase[i * 3];
-      starCol[i * 3 + 1] = starBase[i * 3 + 1];
-      starCol[i * 3 + 2] = starBase[i * 3 + 2];
+      for (let i = 0; i < n; i++) {
+        pos[i * 3] = (Math.random() - 0.5) * 92;
+        pos[i * 3 + 1] = (Math.random() - 0.5) * 48;
+        pos[i * 3 + 2] = -4 - Math.random() * 34;
 
-      starPhase[i] = Math.random() * Math.PI * 2;
+        const blauw = Math.random() < 0.3;
+        const h = helderheid * (0.6 + Math.random() * 0.4);
+        basis[i * 3] = (blauw ? 0.62 : 1) * h;
+        basis[i * 3 + 1] = (blauw ? 0.84 : 1) * h;
+        basis[i * 3 + 2] = h;
+
+        col[i * 3] = basis[i * 3];
+        col[i * 3 + 1] = basis[i * 3 + 1];
+        col[i * 3 + 2] = basis[i * 3 + 2];
+
+        fase[i] = Math.random() * Math.PI * 2;
+      }
+
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+
+      const mat = new THREE.PointsMaterial({
+        size: grootte,
+        map: stipTextuur,
+        vertexColors: true,
+        sizeAttenuation: true,
+        transparent: true,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      });
+
+      const punten = new THREE.Points(geo, mat);
+      scene.add(punten);
+      sterlagen.push({ geo, mat, col, basis, fase, punten, n });
     }
 
-    const starGeo = new THREE.BufferGeometry();
-    starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
-    starGeo.setAttribute('color', new THREE.BufferAttribute(starCol, 3));
-
-    const starMat = new THREE.PointsMaterial({
-      size: 0.28,
-      vertexColors: true,
-      sizeAttenuation: true,
-      transparent: true,
-      opacity: 0.9,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-
-    const stars = new THREE.Points(starGeo, starMat);
-    scene.add(stars);
+    // Veel kleine, minder middelgrote, een handvol grote — dat verschil
+    // in formaat geeft diepte. Bewust gedempt gehouden: de sterren zijn
+    // decor, de golf moet het beeld dragen.
+    maakSterlaag(340, 0.20, 0.42);
+    maakSterlaag(130, 0.38, 0.52);
+    maakSterlaag(38, 0.70, 0.6);
 
     // ═════════════════════════════════════════════════════════════
     // LINT — veel lijnen dicht op elkaar. Per punt een eigen kleur,
@@ -105,8 +140,8 @@ export default function Background3D() {
     // Twee linten over elkaar, elk met eigen fase en tint — dat geeft
     // de gelaagdheid en de kruisingen uit de referentie.
     const LINTEN = [
-      { fase: 0, diepte: 0, snelheid: 1.0, r: 0.16, g: 0.52, b: 1.0, kracht: 1.0 },
-      { fase: 2.1, diepte: -6, snelheid: 0.72, r: 0.34, g: 0.72, b: 1.0, kracht: 0.62 },
+      { fase: 0, diepte: 0, snelheid: 1.0, r: 0.22, g: 0.62, b: 1.0, kracht: 1.45 },
+      { fase: 2.1, diepte: -6, snelheid: 0.72, r: 0.45, g: 0.82, b: 1.0, kracht: 0.9 },
     ];
 
     LINTEN.forEach((lint, li) => {
@@ -126,7 +161,7 @@ export default function Background3D() {
         const mat = new THREE.LineBasicMaterial({
           vertexColors: true,
           transparent: true,
-          opacity: 0.55,
+          opacity: 0.92,
           blending: THREE.AdditiveBlending,
           depthWrite: false,
         });
@@ -203,14 +238,16 @@ export default function Background3D() {
       }
 
       // Sterren zacht laten knipperen — altijd vanaf de basiskleur
-      for (let i = 0; i < STAR_COUNT; i++) {
-        const tw = 0.62 + 0.38 * Math.sin(time * 2.4 + starPhase[i]);
-        starCol[i * 3] = starBase[i * 3] * tw;
-        starCol[i * 3 + 1] = starBase[i * 3 + 1] * tw;
-        starCol[i * 3 + 2] = starBase[i * 3 + 2] * tw;
+      for (const S of sterlagen) {
+        for (let i = 0; i < S.n; i++) {
+          const tw = 0.55 + 0.45 * Math.sin(time * 2.4 + S.fase[i]);
+          S.col[i * 3] = S.basis[i * 3] * tw;
+          S.col[i * 3 + 1] = S.basis[i * 3 + 1] * tw;
+          S.col[i * 3 + 2] = S.basis[i * 3 + 2] * tw;
+        }
+        S.geo.attributes.color.needsUpdate = true;
+        S.punten.rotation.y += 0.00006;
       }
-      starGeo.attributes.color.needsUpdate = true;
-      stars.rotation.y += 0.00008;
 
       renderer.render(scene, camera);
     };
@@ -237,8 +274,11 @@ export default function Background3D() {
         l.geo.dispose();
         l.mat.dispose();
       });
-      starGeo.dispose();
-      starMat.dispose();
+      sterlagen.forEach((s) => {
+        s.geo.dispose();
+        s.mat.dispose();
+      });
+      stipTextuur.dispose();
       renderer.dispose();
     };
   }, []);

@@ -37,13 +37,14 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 select-none group">
+            {/* logo-dark heeft een zwarte D; de gewone logo.png heeft een
+                witte D en die viel volledig weg tegen de lichte balk. */}
             <Image
-              src="/images/logo.png"
-              alt="DK logo"
+              src="/images/logo-dark.png"
+              alt="Logo Denzel Keenan"
               width={40}
               height={40}
               className="object-contain w-10 h-10"
-              style={{ filter: "brightness(0.8) contrast(1.2)" }}
             />
             <span className="text-sm font-semibold text-[#09090b] group-hover:text-[#09090b] transition-colors duration-200">
               Denzel Keenan

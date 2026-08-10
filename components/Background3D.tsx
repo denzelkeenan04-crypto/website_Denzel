@@ -75,10 +75,10 @@ export default function Background3D() {
     // zodat het lint aan de randen uitvaagt en op de toppen oplicht.
     // Dat is wat het die zijdeachtige uitstraling geeft.
     // ═════════════════════════════════════════════════════════════
-    const LINES = 90;
+    const LINES = 110;
     const POINTS = 220;
-    const WIDTH = 62;
-    const DEPTH = 6;
+    const WIDTH = 48;
+    const DEPTH = 5;
 
     const group = new THREE.Group();
     group.rotation.x = -0.22;
@@ -140,24 +140,25 @@ export default function Background3D() {
           const u = p / (POINTS - 1);
           const x = pos[p * 3];
 
-          // Gestapelde golven van grof naar fijn: de grove bepaalt de
-          // grote zwaai, de fijne geeft de rimpeling erbovenop.
-          const golf1 = Math.sin(x * 0.075 + time * 0.8 + z0 * 0.9) * 3.4;
-          const golf2 = Math.sin(x * 0.155 - time * 1.15 + z0 * 1.4) * 1.5;
-          const golf3 = Math.cos(x * 0.31 + time * 0.6 + z0 * 2.1) * 0.5;
+          // Gestapelde golven van grof naar fijn. De frequenties zijn zo
+          // gekozen dat er ruim twee volle zwaaien in beeld passen —
+          // bij een langere golflengte zie je alleen een bijna rechte lijn.
+          const golf1 = Math.sin(x * 0.24 + time * 0.8 + z0 * 0.85) * 4.2;
+          const golf2 = Math.sin(x * 0.45 - time * 1.15 + z0 * 1.5) * 1.5;
+          const golf3 = Math.cos(x * 0.88 + time * 0.6 + z0 * 2.2) * 0.45;
 
           // Het lint zwelt aan en af over de lengte
-          const zwelling = 0.55 + 0.45 * Math.sin(x * 0.042 - time * 0.5);
+          const zwelling = 0.55 + 0.45 * Math.sin(x * 0.11 - time * 0.5);
 
           const y = (golf1 + golf2) * zwelling + golf3;
           pos[p * 3 + 1] = y;
-          pos[p * 3 + 2] = z0 + Math.sin(x * 0.09 + time * 0.45 + z0) * 2.2;
+          pos[p * 3 + 2] = z0 + Math.sin(x * 0.19 + time * 0.45 + z0) * 2.4;
 
           // Zacht uitvagen naar links en rechts
           const rand = Math.pow(Math.sin(u * Math.PI), 0.55);
 
           // Toppen lichten op, dalen blijven donker
-          const top = 0.32 + 0.68 * ((golf1 / 3.4) * 0.5 + 0.5);
+          const top = 0.28 + 0.72 * ((golf1 / 4.2) * 0.5 + 0.5);
 
           const k = rand * top;
           col[p * 3] = 0.16 * k + 0.5 * k * t;

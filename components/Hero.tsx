@@ -230,8 +230,8 @@ export default function Hero() {
               className="inline-flex items-center gap-2 mb-9"
             >
               <span
-                className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium text-[#52525b]"
-                style={{ background: "#1a1a1a", border: "1px solid rgba(125, 211, 252, 0.14)" }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium text-white"
+                style={{ background: "rgba(9, 20, 45, 0.78)", border: "1px solid rgba(125, 211, 252, 0.24)" }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
                 Beschikbaar voor nieuwe opdrachten

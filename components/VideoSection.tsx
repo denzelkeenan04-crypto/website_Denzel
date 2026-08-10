@@ -94,7 +94,7 @@ function PhoneFront() {
           playsInline
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         >
-          <source src="/video/stage-footage.mp4" type="video/mp4" />
+          <source src="/video/social-media-campagne-4.mp4" type="video/mp4" />
         </video>
         {/* Subtle screen gradient */}
         <div
@@ -189,26 +189,27 @@ export default function VideoSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/60 mb-4">/ Stage in beeld</p>
+            <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/80 mb-4">/ Allied Sports in beeld</p>
             <h2
               className="font-black tracking-[-0.04em] leading-[1.08] text-white mb-6"
               style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
             >
-              Buiten de{" "}
-              <span className="text-accent">kantoorruimte</span>.
+              Content op de{" "}
+              <span className="text-accent">baan</span>.
             </h2>
-            <p className="text-base text-white/70 leading-relaxed mb-8 max-w-md">
-              Marketing is niet alleen achter een scherm. Tijdens mijn stage ging ik op
-              locatie voor fotografie, videoproductie en het in kaart brengen van
-              toeristische plekken voor Kustweek.nl.
+            <p className="text-base text-white/90 leading-relaxed mb-8 max-w-md">
+              Naast mijn opleiding werk ik bij Allied Sports in Sneek, de padel- en
+              squashwinkel. Daar sta ik zelf voor de camera: van rondleidingen door
+              de shop en materiaaladvies tot clinics en toernooien op de baan —
+              gefilmd, gemonteerd en gepost als reel.
             </p>
 
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: "📸", skill: "Fotografie",      detail: "iPhone + compositie" },
                 { icon: "🎥", skill: "Videoproductie",  detail: "Filmen & editing" },
-                { icon: "📍", skill: "Locatiescouts",   detail: "Friesland & kust" },
-                { icon: "✏️", skill: "Content creatie", detail: "Tekst + beeld" },
+                { icon: "📸", skill: "Fotografie",      detail: "Baan & materiaal" },
+                { icon: "🎾", skill: "Clinics & toernooien", detail: "Padel en squash" },
+                { icon: "✏️", skill: "Content creatie", detail: "Reels voor social" },
               ].map(({ icon, skill, detail }) => (
                 <div
                   key={skill}

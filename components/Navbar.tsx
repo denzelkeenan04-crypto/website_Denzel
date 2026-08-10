@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -119,23 +119,19 @@ export default function Navbar() {
           </button>
         </nav>
 
-        {/* Uitklapmenu — telefoon */}
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              className="md:hidden mt-2 rounded-2xl overflow-hidden"
-              style={{
-                background: "rgba(255,255,255,0.96)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(125, 211, 252, 0.2)",
-                boxShadow: "0 8px 30px rgba(0,0,0,0.18)",
-              }}
-            >
+        {/* Uitklapmenu — telefoon.
+            Bewust géén dekkingsanimatie: die bleef halverwege hangen op
+            0,69 waardoor je de pagina dwars door het menu heen las.
+            Volledig ondoorzichtig wit, zodat het altijd leesbaar is. */}
+        {open && (
+          <div
+            className="md:hidden mt-2 rounded-2xl overflow-hidden"
+            style={{
+              background: "#ffffff",
+              border: "1px solid rgba(125, 211, 252, 0.28)",
+              boxShadow: "0 12px 36px rgba(0,0,0,0.35)",
+            }}
+          >
               <div className="flex flex-col p-2">
                 {NAV.map(({ label, href }) => {
                   const active = pathname === href;
@@ -161,10 +157,9 @@ export default function Navbar() {
                 >
                   Hire me
                 </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        )}
       </motion.div>
     </header>
   );
